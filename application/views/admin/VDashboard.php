@@ -1,39 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<body>
-    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
-        <div class="container-fluid">
-            <div class="page-header-content pt-4">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-auto mt-4">
-                        <h1 class="page-header-title">
-                            <div class="page-header-icon"><i class="fas fa-home ml-2 fa-xs"></i></div>
-                            Dashboard
-                        </h1>
-                    </div>
+<main>
+    <!-- Main page content-->
+    <div class="container-fluid mt-5">
+        <!-- Custom page header alternative example-->
+        <div class="d-flex justify-content-between align-items-sm-center flex-column flex-sm-row mb-4">
+            <div class="mr-4 mb-3 mb-sm-0">
+                <h1 class="mb-0">Dashboard</h1>
+                <div class="small">
+                    <span class="font-weight-500 text-primary">Friday</span>
+                    &#xB7; September 20, 2020 &#xB7; 12:16 PM
                 </div>
             </div>
         </div>
-    </header>
-    <div class="container mt-n10">
         <div class="row">
-            <div class="col-xxl-4 col-xl-12 mb-4">
-                <div class="card h-100">
-                    <div class="card-body h-100 d-flex flex-column justify-content-center py-5 py-xl-4">
-                        <div class="row align-items-center">
-                            <div class="col-xl-8 col-xxl-12">
-                                <div class="text-center px-4 mb-4 mb-xl-0 mb-xxl-4">
-                                    <h1 class="text-primary">Welcome Back !</h1>
-                                    <p class="text-gray-700 mb-0">Time to Work !</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-xl-3 col-md-6 mb-4">
-                <!-- Dashboard info widget 4-->
+                <!-- Dashboard info widget 1-->
                 <div class="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-primary h-100">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
@@ -51,7 +31,7 @@
                 </div>
             </div>
             <div class="col-xl-3 col-md-6 mb-4">
-                <!-- Dashboard info widget 4-->
+                <!-- Dashboard info widget 2-->
                 <div class="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-secondary h-100">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
@@ -69,7 +49,7 @@
                 </div>
             </div>
             <div class="col-xl-3 col-md-6 mb-4">
-                <!-- Dashboard info widget 4-->
+                <!-- Dashboard info widget 3-->
                 <div class="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-yellow h-100">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
@@ -104,24 +84,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-xxl-4 col-xl-6 mb-4">
                 <div class="card card-header-actions h-100">
                     <div class="card-header">
                         Daftar Pemesanan
-                        <!-- <div class="dropdown no-caret">
-                            <button class="btn btn-transparent-dark btn-icon dropdown-toggle" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="text-gray-500" data-feather="more-vertical"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right animated--fade-in-up" aria-labelledby="dropdownMenuButton">
-                                <h6 class="dropdown-header">Filter Activity:</h6>
-                                <a class="dropdown-item" href="#!"><span class="badge badge-green-soft text-green my-1">Commerce</span></a>
-                                <a class="dropdown-item" href="#!"><span class="badge badge-blue-soft text-blue my-1">Reporting</span></a>
-                                <a class="dropdown-item" href="#!"><span class="badge badge-yellow-soft text-yellow my-1">Server</span></a>
-                                <a class="dropdown-item" href="#!"><span class="badge badge-purple-soft text-purple my-1">Users</span></a>
-                            </div>
-                        </div> -->
                     </div>
                     <div class="card-body">
                         <div class="datatable">
-                            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered table-hover" id="dataTablePemesanan" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>No Nota</th>
@@ -133,7 +105,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>2019081600001</td>
+                                        <td>20190816001</td>
                                         <td>Marketing A</td>
                                         <td>Blitar</td>
                                         <td>10 Jan 2020 11:50</td>
@@ -142,12 +114,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>2019090700002</td>
+                                        <td>20190907002</td>
                                         <td>Marketing B</td>
                                         <td>Sidoarjo</td>
                                         <td>10 Jan 2020 11:50</td>
                                         <td>
-                                            <div class="badge badge-warning badge-pill">Selesai</div>
+                                            <div class="badge badge-success badge-pill">Selesai</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -160,27 +132,10 @@
                 <div class="card card-header-actions h-100">
                     <div class="card-header">
                         Daftar Klien
-                        <!-- <div class="dropdown no-caret">
-                            <button class="btn btn-transparent-dark btn-icon dropdown-toggle" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="text-gray-500" data-feather="more-vertical"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right animated--fade-in-up" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#!">
-                                    <div class="dropdown-item-icon"><i class="text-gray-500" data-feather="list"></i></div>
-                                    Manage Tasks
-                                </a>
-                                <a class="dropdown-item" href="#!">
-                                    <div class="dropdown-item-icon"><i class="text-gray-500" data-feather="plus-circle"></i></div>
-                                    Add New Task
-                                </a>
-                                <a class="dropdown-item" href="#!">
-                                    <div class="dropdown-item-icon"><i class="text-gray-500" data-feather="minus-circle"></i></div>
-                                    Delete Tasks
-                                </a>
-                            </div>
-                        </div> -->
                     </div>
                     <div class="card-body">
                         <div class="datatable">
-                            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered table-hover" id="dataTableKlien" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>Nama</th>
@@ -206,7 +161,7 @@
                                         <td>08560878091</td>
                                         <td>edward@gmail.com</td>
                                         <td>
-                                            <div class="badge badge-warning badge-pill">Aktif</div>
+                                            <div class="badge badge-danger badge-pill">Nonaktif</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -217,6 +172,51 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+</main>
+<script>
+    $().ready(function() {
+        var table = $('#dataTablePemesanan').DataTable({
+            ordering: false,
+            searching: false,
+            scrollX: true,
+            scrollCollapse: true,
+            "order": [
+                [0, 'asc']
+            ],
+            columnDefs: [{
+                    sWidth: '5%',
+                    targets: 0
+                },
+                {
+                    sWidth: '5%',
+                    targets: 1
+                }
+            ],
+            fixedColumns: false
+        });
+    });
+</script>
+<script>
+    $().ready(function() {
+        var table = $('#dataTableKlien').DataTable({
+            ordering: false,
+            responsive: true,
+            searching: false,
+            scrollX: true,
+            scrollCollapse: true,
+            fixedColumns: true,
+             "order": [
+                [0, 'asc']
+            ],
+            columnDefs: [{
+                    sWidth: '5%',
+                    targets: 0
+                },
+                {
+                    sWidth: '5%',
+                    targets: 3
+                }
+            ],
+        });
+    });
+</script>
