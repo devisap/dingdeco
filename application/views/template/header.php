@@ -24,6 +24,8 @@
     <script src="<?= base_url(); ?>assets/js/plugin/feather-icons/4.27.0/feather.min.js" crossorigin="anonymous"></script>
     <script data-search-pseudo-elements defer src="<?= base_url(); ?>assets/js/plugin/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
+    <!-- Select2js -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body class="nav-fixed">
@@ -48,15 +50,15 @@
                         <a class="dropdown-item dropdown-notifications-item notifikasi">
                             Tidak Ada Pemberitahuan
                         </a>
-                    <?php }else{ ?>
+                    <?php } else { ?>
                         <a class="dropdown-item dropdown-notifications-item notifikasi" href="<?php echo site_url('Jamaah/notifJamaah'); ?>">
                             <i class="fas fa-user"></i>&nbsp;&nbsp;
                             <div class="dropdown-notifications-item-content">
                                 <div class="dropdown-notifications-item-content-text">Pendaftaran Jamaah</div>
-                                    <div class="dropdown-notifications-item-content-details">Terdapat <?php echo $countJamaahDaftar?> pendaftaran jamaah baru</div>
+                                    <div class="dropdown-notifications-item-content-details">Terdapat <?php echo $countJamaahDaftar ?> pendaftaran jamaah baru</div>
                             </div>
                         </a>
-                        <?php }?>                    
+                        <?php } ?>                    
                 </div>
             </li>
             <li class="nav-item dropdown no-caret mr-3 dropdown-notifications list-notifikasi">

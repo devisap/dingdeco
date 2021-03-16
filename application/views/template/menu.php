@@ -3,7 +3,7 @@
         <i class="fas fa-home ml-2 mr-3 fa-lg"></i>
         Dashboard
     </a>
-    <a class="nav-link " href="javascript:void(0);">
+    <a class="nav-link " href="<?php echo site_url('Klien'); ?>">
         <i class="fas fa-users ml-2 mr-3 fa-lg"></i>
         Daftar Klien
     </a>
@@ -18,7 +18,7 @@
     </a>
     <div class="collapse" id="collapseDashboards" data-parent="#accordionSidenav">
         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-            <a class="nav-link" href="javascript:void(0);">
+            <a class="nav-link" href="<?php echo site_url('Proyek'); ?>">
                 <i class="fas fa-list ml-2 mr-2 fa-lg"></i>
                 Daftar Pemesanan
             </a>

@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xxl-4 col-xl-6 mb-4">
+            <div class="col-xxl-6 col-xl-6 mb-4">
                 <div class="card card-header-actions h-100">
                     <div class="card-header">
                         Daftar Pemesanan
@@ -128,7 +128,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-xl-6 mb-4">
+            <div class="col-xxl-6 col-xl-6 mb-4">
                 <div class="card card-header-actions h-100">
                     <div class="card-header">
                         Daftar Klien
