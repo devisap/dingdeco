@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content />
     <meta name="author" content />
-    <title>Login | DingDeco</title>
+    <title>Login | SYMA Decoration</title>
     <link href="<?= base_url(); ?>assets/css/styles.css" rel="stylesheet" />
     <link href="<?= base_url(); ?>assets/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/img/logo_tomboati.png" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/img/ic_symadeco.svg" />
 </head>
 
 <body class="bg-primary">
@@ -23,7 +23,7 @@
                             <!-- Basic login form-->
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header justify-content-center">
-                                    <h3 class="font-weight-light my-4">Login</h3>
+                                    <h3 class="font-weight-light text-md-center my-4">Login</h3>
                                 </div>
                                 <div class="card-body">
                                     <!-- Login form-->
@@ -47,9 +47,8 @@
                                             </div>
                                         </div>
                                         <!-- Form Group (login box)-->
-                                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a class="small" href="auth-password-basic.html">Forgot Password?</a>
-                                            <button class="btn btn-primary" onclick="location.href='<?php echo base_url();?>Dashboard'">Login</button>
+                                        <div class="form-group d-flex align-items-center justify-content-center mt-4 mb-0">
+                                            <button class="btn btn-primary" onclick="location.href='<?php echo base_url(); ?>Dashboard'">Login</button>
                                         </div>
                                     </form>
                                 </div>
@@ -62,8 +61,10 @@
         <div id="layoutAuthentication_footer">
             <footer class="footer mt-auto footer-dark">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 small">Copyright &#xA9; DingDeco</div>
+                    <div class="form-group d-flex align-items-center justify-content-center mt-4 mb-0">
+                        <div class="row ">
+                            <div class="col-md-50 small mb-1">Copyright &#xA9; SYMA Decoration</div>
+                        </div>
                     </div>
                 </div>
             </footer>
