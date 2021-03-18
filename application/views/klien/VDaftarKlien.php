@@ -32,19 +32,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>085732694267</td>
-                                <td>dedy@gmail.com</td>
-                                <td>Malang</td>
-                                <td>
-                                    <div class="badge badge-primary badge-pill">Aktif</div>
-                                </td>
-                                <td>
-                                    <button class="btn btn-datatable btn-icon btn-warning mr-2" type="button" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
-                                    <button class="btn btn-datatable btn-icon btn-green" type="button" data-toggle="modal" data-target="#statusModalAktif"><i class="fa fa-check"></i></button>
-                                </td>
-                            </tr>
+                            <?php
+                                foreach($kliens as $item){
+                                    if($item->deleted_at != null){
+                                        $status = '<div class="badge badge-danger badge-pill">Tidak Aktif</div>';
+                                    }else{
+                                        $status = '<div class="badge badge-primary badge-pill">Aktif</div>';
+                                    }
+                                    
+                                    echo '
+                                        <tr>
+                                            <td>'.$item->NAMA_KLIEN.'</td>
+                                            <td>'.$item->TELP_KLIEN.'</td>
+                                            <td>'.$item->EMAIL_KLIEN.'</td>
+                                            <td>'.$item->ALAMAT_KLIEN.'</td>
+                                            <td>
+                                                '.$status.'
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-datatable btn-icon btn-warning mr-2 btnEdit" data-id='.$item->ID_KLIEN.' type="button" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-datatable btn-icon btn-green btnChangeStatus" data-id='.$item->ID_KLIEN.' type="button" data-toggle="modal" data-target="#statusModalAktif"><i class="fa fa-check"></i></button>
+                                            </td>
+                                        </tr>
+                                    ';
+                                }   
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -60,27 +72,29 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="form-group">
-                                <label for="namaKlien">Nama</label>
-                                <input type="text" name="namaKlien" class="form-control" placeholder="Masukan Nama Klien">
+                            <form action="<?= site_url('klien/store')?>" method="post">
+                                <div class="form-group">
+                                    <label for="namaKlien">Nama</label>
+                                    <input type="text" name="NAMA_KLIEN" class="form-control" placeholder="Masukan Nama Klien" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nomorKlien">Nomor Telepon</label>
+                                    <input type="number" name="TELP_KLIEN" class="form-control" placeholder="Masukan Nomor telepon" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailKlien">Email</label>
+                                    <input type="email" name="EMAIL_KLIEN" class="form-control" placeholder="Masukan Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="alamatKlien">Alamat</label>
+                                    <input type="text" name="ALAMAT_KLIEN" class="form-control" placeholder="Masukan Alamat" required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="nomorKlien">Nomor Telepon</label>
-                                <input type="number" name="nomorKlien" class="form-control" placeholder="Masukan Nomor telepon">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
-                            <div class="form-group">
-                                <label for="emailKlien">Email</label>
-                                <input type="email" name="emailKlien" class="form-control" placeholder="Masukan Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="alamatKlien">Alamat</label>
-                                <input type="text" name="alamatKlien" class="form-control" placeholder="Masukan Alamat">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                            <button type="button" class="btn btn-primary">Simpan</button>
-                        </div>
+                            </form>
                     </div>
                 </div>
             </div>
@@ -94,28 +108,31 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="emailKlien">Nama</label>
-                                <input type="text" name="namaKlien" class="form-control">
+                        <form action="<?= site_url('klien/edit')?>" method="post">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="emailKlien">Nama</label>
+                                    <input type="text" id="namaKlien_edit" name="NAMA_KLIEN" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nomorKlien">Nomor Telepon</label>
+                                    <input type="number" id="tlpKlien_edit" name="TELP_KLIEN" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailKlien">Email</label>
+                                    <input type="email" id="emailKlien_edit" name="EMAIL_KLIEN" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="alamatKlien">Alamat</label>
+                                    <input type="text" id="alamatKlien_edit" name="ALAMAT_KLIEN" class="form-control">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="nomorKlien">Nomor Telepon</label>
-                                <input type="number" name="nomorKlien" class="form-control">
+                            <div class="modal-footer">
+                                <input type="hidden" id="idKlien_edit" name="ID_KLIEN" class="form-control">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
-                            <div class="form-group">
-                                <label for="emailKlien">Email</label>
-                                <input type="email" name="emailKlien" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="alamatKlien">Alamat</label>
-                                <input type="text" name="alamatKlien" class="form-control">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                            <button type="button" class="btn btn-primary">Simpan</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -129,13 +146,16 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <h5>Apakah anda yakin ingin mengubah status Aktif Menjadi Nonaktif ?</h5>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
-                            <button type="button" class="btn btn-danger"><i class="fa fa-check mr-1"></i>Ubah Status</button>
-                        </div>
+                        <form action="<?= site_url('klien/changeStatus')?>" method="post">
+                            <div class="modal-body">
+                                <h5>Apakah anda yakin ingin mengubah status ?</h5>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="hidden" id="idKlien_changeStatus" name="ID_KLIEN">
+                                <button type="button" class="btn btn-light" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Ubah Status</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -149,13 +169,16 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <h5>Apakah anda yakin ingin mengubah status ?</h5>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
-                            <button type="button" class="btn btn-success"><i class="fa fa-check mr-1"></i>Ubah Status</button>
-                        </div>
+                        <form action="<?= site_url('klien/changeStatus')?>" method="post">
+                            <div class="modal-body">
+                                <h5>Apakah anda yakin ingin mengubah status ?</h5>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="hidden" id="idKlien_changeStatus" name="ID_KLIEN">
+                                <button type="button" class="btn btn-light" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Ubah Status</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -172,4 +195,24 @@
             fixedColumns: false
         });
     });
+    $('#dataTableKlien tbody').on('click', '.btnEdit', function(){
+        const id = $(this).data('id');
+        $.ajax({
+            url: "<?= site_url('klien/ajxGet')?>",
+            type: "post",
+            dataType: 'json',
+            data: {ID_KLIEN: id},
+            success: res => {
+                $('#namaKlien_edit').val(res[0].NAMA_KLIEN)
+                $('#tlpKlien_edit').val(res[0].TELP_KLIEN)
+                $('#emailKlien_edit').val(res[0].EMAIL_KLIEN)
+                $('#alamatKlien_edit').val(res[0].ALAMAT_KLIEN)
+                $('#idKlien_edit').val(res[0].ID_KLIEN)
+            }
+        })
+    })
+    $('#dataTableKlien tbody').on('click', '.btnChangeStatus', function(){
+        const id = $(this).data('id');
+        $('#idKlien_changeStatus').val(id)
+    })
 </script>
