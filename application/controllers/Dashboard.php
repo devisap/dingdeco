@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller
     {
 
         $data = array(
-            'title' => 'Dashboard | DingDeco'
+            'title' => 'Dashboard | SYMA Decoration'
         );
         //Change this 
         $this->template->view('admin/VDashboard', $data);

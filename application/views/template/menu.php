@@ -3,7 +3,7 @@
         <i class="fas fa-home ml-2 mr-3 fa-lg"></i>
         Dashboard
     </a>
-    <a class="nav-link " href="<?php echo site_url('Klien'); ?>">
+    <a class="nav-link " href="<?php echo site_url('klien'); ?>">
         <i class="fas fa-users ml-2 mr-3 fa-lg"></i>
         Daftar Klien
     </a>
@@ -69,9 +69,13 @@
             </a>
         </nav>
     </div>
-    <a class="nav-link " href="javascript:void(0);">
+    <a class="nav-link" href="<?php echo site_url('Welcome/paket'); ?>">
         <i class="fa fa-newspaper ml-2 mr-3 fa-lg"></i>
         Paket
+    </a>
+    <a class="nav-link" href="<?php echo site_url('Welcome/pengguna'); ?>">
+        <i class="fa fa-users ml-2 mr-3 fa-lg"></i>
+        Pengguna
     </a>
 </div>
 <div class="sidenav-footer">

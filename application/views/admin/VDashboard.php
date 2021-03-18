@@ -110,7 +110,7 @@
                                         <td>Blitar</td>
                                         <td>10 Jan 2020 11:50</td>
                                         <td>
-                                            <div class="badge badge-primary badge-pill">Baru</div>
+                                            <div class="badge badge-blue badge-pill">Baru</div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -152,7 +152,7 @@
                                         <td>08560878091</td>
                                         <td>paul@gmail.com</td>
                                         <td>
-                                            <div class="badge badge-primary badge-pill">Aktif</div>
+                                            <div class="badge badge-blue badge-pill">Aktif</div>
                                         </td>
                                     </tr>
                                     <tr>

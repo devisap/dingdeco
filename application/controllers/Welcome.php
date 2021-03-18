@@ -22,4 +22,26 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	//Paket
+	public function paket()
+    {
+
+        $data = array(
+            'title' => 'Paket | SYMA Decoration'
+        );
+        //Change this 
+        $this->template->view('paket/VPaket', $data);
+    }
+
+	//pengguna
+	public function pengguna()
+    {
+
+        $data = array(
+            'title' => 'Pengguna | SYMA Decoration'
+        );
+        //Change this 
+        $this->template->view('pengguna/VPengguna', $data);
+    }
 }

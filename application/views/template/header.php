@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="DingDeco Project" />
+    <meta name="description" content="Symadeco Project" />
     <meta name="author" content />
     <title><?= $title; ?></title>
-    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/img/deco.png" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/img/ic_symadeco.svg" />
     <link href="<?= base_url(); ?>assets/css/styles.css" rel="stylesheet" />
     <link href="<?= base_url(); ?>assets/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 
@@ -24,14 +24,18 @@
     <script src="<?= base_url(); ?>assets/js/plugin/feather-icons/4.27.0/feather.min.js" crossorigin="anonymous"></script>
     <script data-search-pseudo-elements defer src="<?= base_url(); ?>assets/js/plugin/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
+     <!-- CK editor JS harus di taruh sebelum, initialisasi editor pada textarea -->
+     <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
+
     <!-- Select2js -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 
 <body class="nav-fixed">
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-        <img style="width:3%" class="navbar-brand-img ml-3" src="<?= base_url(); ?>assets/img/deco.png"></img>
-        <a class="navbar-brand" href="<?php echo site_url('Dashboard'); ?>">DingDeco</a>
+        <!-- <img style="width:1.4%" class="navbar-brand-img ml-3" src="<?= base_url(); ?>assets/img/ic_symadeco.svg"></img> -->
+        <a class="navbar-brand" href="<?php echo site_url('Dashboard'); ?>">SYMA Decoration</a>
         <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2 ml-0" id="sidebarToggle" href="assets/#"><i data-feather="menu"></i></button>
         <ul class="navbar-nav align-items-center ml-auto">
             <!-- <li class="nav-item dropdown no-caret mr-3 dropdown-notifications list-pemberitahuan">

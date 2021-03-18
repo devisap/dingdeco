@@ -1,6 +1,6 @@
 <main>
     <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
-        <div class="container">
+        <div class="container-fluid">
             <div class="page-header-content pt-4">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto mt-4">
@@ -13,10 +13,10 @@
             </div>
         </div>
     </header>
-    <div class="container mt-n10">
+    <div class="container-fluid mt-n10">
         <div class="card mb-4">
             <div class="card-header">
-                <button class='btn btn-primary btn-sm' type='button' data-toggle="modal" data-target="#tambahModalPemesanan"><i class="fa fa-plus mr-1"></i>Tambah Klien</button>
+                <button class='btn btn-primary btn-sm' type='button' data-toggle="modal" data-target="#tambahModalPemesanan"><i class="fa fa-plus mr-1"></i>Tambah Pemesanan</button>
             </div>
             <div class="card-body">
                 <div class="datatable">
@@ -31,7 +31,7 @@
                                 <th>Biaya</th>
                                 <th>Tgl Acara</th>
                                 <th>Status</th>
-                                <th>Aksi</th>
+                                <th width="14%">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,9 +47,9 @@
                                     <div class="badge badge-success badge-pill">Baru</div>
                                 </td>
                                 <td>
-                                    <button class="btn btn-datatable btn-icon btn-warning mr-1" type="button" data-toggle="modal" data-target="#editModalPemesanan"><i class="fa fa-edit"></i></button>
-                                    <button class="btn btn-datatable btn-icon btn-green mr-1" type="button" data-toggle="modal" data-target="#statusModal"><i class="fa fa-check"></i></button>
-                                    <button class="btn btn-datatable btn-icon btn-dark mr-1" type="button"><i class="fa fa-print"></i></button>
+                                    <button class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editModalPemesanan"><i class="fa fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-green ml-1" type="button" data-toggle="modal" data-target="#statusModal"><i class="fa fa-check"></i></button>
+                                    <button class="btn btn-sm btn-dark ml-1" type="button"><i class="fa fa-print"></i></button>
                                 </td>
                             </tr>
                         </tbody>
@@ -58,10 +58,10 @@
             </div>
             <!-- Modal Tambah Klien -->
             <div class="modal fade" id="tambahModalPemesanan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-dialog " role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Tambah Klien</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Tambah Pemesanan</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -114,15 +114,15 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                            <button type="button" class="btn btn-primary">Simpan</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
+                            <button type="button" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Modal Edit Klien -->
             <div class="modal fade" id="editModalPemesanan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-dialog " role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Edit Pemesanan</h5>
@@ -169,8 +169,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                            <button type="button" class="btn btn-primary">Simpan</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
+                            <button type="button" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
                     </div>
                 </div>
@@ -195,8 +195,8 @@
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-light" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
+                            <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
                     </div>
                 </div>

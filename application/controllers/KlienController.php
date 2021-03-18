@@ -6,7 +6,7 @@
         }
 
         public function vKlien(){
-            $data['title']  = 'Daftar Klien | DingDeco';
+            $data['title']  = 'Daftar Klien | SYMA Decoration';
             $data['kliens'] = $this->Klien->getAll();
             
             //Change this 
