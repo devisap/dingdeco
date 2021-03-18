@@ -10,7 +10,7 @@ class Proyek extends CI_Controller
     {
 
         $data = array(
-            'title' => 'Daftar Pemesanan | DingDeco'
+            'title' => 'Daftar Pemesanan | SYMA Decoration'
         );
         //Change this 
         $this->template->view('proyek/VDaftarPemesanan', $data);
