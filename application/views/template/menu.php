@@ -69,11 +69,11 @@
             </a>
         </nav>
     </div>
-    <a class="nav-link" href="<?php echo site_url('Welcome/paket'); ?>">
+    <a class="nav-link" href="<?php echo site_url('paket'); ?>">
         <i class="fa fa-newspaper ml-2 mr-3 fa-lg"></i>
         Paket
     </a>
-    <a class="nav-link" href="<?php echo site_url('Welcome/pengguna'); ?>">
+    <a class="nav-link" href="<?php echo site_url('user'); ?>">
         <i class="fa fa-users ml-2 mr-3 fa-lg"></i>
         Pengguna
     </a>

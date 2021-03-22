@@ -36,15 +36,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Paket A</td>
-                                <td>Rp14.000.000</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary ml-1" type="button" data-toggle="modal" data-target="#detailPaket"><i class="fa fa-ellipsis-h"></i></button>
-                                    <button class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editPaket"><i class="fa fa-edit"></i></button>
-                                    <button class="btn btn-sm btn-danger ml-1" type="button" data-toggle="modal" data-target="#hapusPaket"><i class="fa fa-trash"></i></button>
-                                </td>
-                            </tr>
+                            <?php
+                                foreach ($paket as $item) {                                 
+                                    echo '
+                                        <tr>
+                                            <td>' . $item->NAMA_PAKET . '</td>
+                                            <td>' . $item->HARGA_PAKET . '</td>
+                                            <td> 
+                                                <button class="btn btn-sm btn-primary detailPaket ml-1" data-id="'. $item->ID_PAKET .'" type="button" data-toggle="modal" data-target="#detailPaket"><i class="fa fa-ellipsis-h"></i></button>
+                                                <button class="btn btn-sm btn-warning editPaket ml-1" data-id="'. $item->ID_PAKET .'" type="button" data-toggle="modal" data-target="#editPaket"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-danger hapusPaket ml-1" data-id="'. $item->ID_PAKET .'" type="button" data-toggle="modal" data-target="#hapusPaket"><i class="fa fa-trash"></i></button>        
+                                            </td>                                          
+                                        </tr>
+                                    ';
+                                }
+                            ?>                            
                         </tbody>
                     </table>
                 </div>
@@ -62,27 +68,27 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <h6 for="judulPaket">Nama Paket</h6>
-                                        <p>Paket A</p>
+                                        <p><span id="namaPaket"></span></p>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <h6 for="hargaPaket">Harga Paket</h6>
-                                        <p>Rp14.000.000</p>
+                                        <p><span id="hargaPaket"></span></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h6 for="fasilitas">Fasilitas</h6>
-                                <p>4 Kembang Mayang
-                                    1 Plengkung Pintu Masuk
+                                <p>
+                                    <span id="fasilitasPaket"></span>
                                 </p>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Tutup</button>
-                            <button class="btn btn-warning ml-1" type="button" data-toggle="modal" data-target="#editPaket"><i class="fa fa-edit"></i>Edit</button>
+                            <button class="btn btn-warning editPaket ml-1" data-id="idPaket" type="button" data-toggle="modal" data-target="#editPaket"><i class="fa fa-edit"></i>Edit</button>
                         </div>
                     </div>
                 </div>
@@ -98,7 +104,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post">
+                            <form action="<?= site_url('paket/store') ?>" method="post">
                                 <div class="form-group">
                                     <label for="namaKlien">Nama Paket</label>
                                     <input type="text" name="NAMA_PAKET" class="form-control" placeholder="Masukan Nama Paket" required>
@@ -109,7 +115,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="tambahFasilitas">Fasilitas</label>
-                                    <textarea name="fasilitas" class="form-control" id="tambahFasilitas" rows="3"></textarea>
+                                    <textarea name="FASILITAS_PAKET" class="form-control" id="tambahFasilitas" rows="3"></textarea>
                                 </div>
                         </div>
                         <div class="modal-footer">
@@ -131,21 +137,22 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post">
+                            <form action="<?= site_url('paket/edit') ?>" method="post">
                                 <div class="form-group">
                                     <label for="namaKlien">Nama Paket</label>
-                                    <input type="text" name="NAMA_PAKET" class="form-control" placeholder="Masukan Nama Paket" required>
+                                    <input type="text" id="namaPaket_edit" name="NAMA_PAKET" class="form-control" placeholder="Masukan Nama Paket" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="hargaPaket">Harga</label>
-                                    <input type="text" name="HARGA_PAKET" class="form-control" placeholder="Masukan Harga Paket" required>
+                                    <input type="text" id="hargaPaket_edit" name="HARGA_PAKET" class="form-control" placeholder="Masukan Harga Paket" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="editFasilitas">Fasilitas</label>
-                                    <textarea name="fasilitas" class="form-control" id="editFasilitas" rows="3"></textarea>
+                                    <textarea name="FASILITAS_PAKET" class="form-control" id="editFasilitas" rows="3"></textarea>
                                 </div>
                         </div>
                         <div class="modal-footer">
+                            <input type="hidden" id="idPaket_edit" name="ID_PAKET" class="form-control">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
@@ -163,12 +170,12 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="" method="post">
+                        <form action="<?= site_url('paket/delete') ?>" method="post">
                             <div class="modal-body">
                                 <h5>Apakah anda yakin ingin menghapus paket ?</h5>
                             </div>
                             <div class="modal-footer">
-                                <input type="hidden" id="" name="">
+                                <input type="hidden" id="hapusPaket_id" name="ID_PAKET">
                                 <button type="button" class="btn btn-light" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                                 <button type="submit" class="btn btn-danger"><i class="fa fa-trash mr-1"></i>Hapus Paket</button>
                             </div>
@@ -209,4 +216,42 @@
     .catch(error => {
     console.error(error);
     });
+    $('#dataTablePaket tbody').on('click', '.editPaket', function() {
+        const id = $(this).data('id');
+        $.ajax({
+            url: "<?= site_url('paket/ajxGet') ?>",
+            type: "post",
+            dataType: 'json',
+            data: {
+                ID_PAKET: id
+            },
+            success: res => {
+                $('#namaPaket_edit').val(res[0].NAMA_PAKET)
+                $('#hargaPaket_edit').val(res[0].HARGA_PAKET)
+                $('#editFasilitas').val(res[0].FASILITAS_PAKET)
+                $('#idPaket_edit').val(res[0].ID_PAKET)
+            }
+        })
+    })
+    $('#dataTablePaket tbody').on('click', '.detailPaket', function() {
+        const id = $(this).data('id');
+        $.ajax({
+            url: "<?= site_url('paket/ajxGet') ?>",
+            type: "post",
+            dataType: 'json',
+            data: {
+                ID_PAKET: id
+            },
+            success: res => {
+                $('#namaPaket').html(res[0].NAMA_PAKET)
+                $('#hargaPaket').html(res[0].HARGA_PAKET)
+                $('#fasilitasPaket').html(res[0].FASILITAS_PAKET)
+                $('#idPaket').val(res[0].ID_PAKET)
+            }
+        })
+    })
+    $('#dataTablePaket tbody').on('click', '.hapusPaket', function() {
+        const id = $(this).data("id")
+        $('#hapusPaket_id').val(id)
+    })
 </script>

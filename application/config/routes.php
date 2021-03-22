@@ -58,4 +58,18 @@ $route['klien']                 = 'KlienController/vKlien';
 $route['klien/store']           = 'KlienController/store';
 $route['klien/edit']            = 'KlienController/edit';
 $route['klien/ajxGet']          = 'KlienController/ajxGet';
-$route['klien/changeStatus'] = 'KlienController/changeStatus';
+$route['klien/changeStatus']    = 'KlienController/changeStatus';
+
+// User
+$route['user']                  = 'UserController/vUser';
+$route['user/store']            = 'UserController/store';
+$route['user/changeStatus']     = 'UserController/changeStatus';
+$route['user/edit']             = 'UserController/edit';
+$route['user/ajxGet']           = 'UserController/ajxGet';
+
+// Paket
+$route['paket']                  = 'PaketController/vPaket';
+$route['paket/store']            = 'PaketController/store';
+$route['paket/edit']             = 'PaketController/edit';
+$route['paket/ajxGet']           = 'PaketController/ajxGet';
+$route['paket/delete']           = 'PaketController/delete';
