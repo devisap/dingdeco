@@ -34,7 +34,7 @@
 
 <body class="nav-fixed">
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-        <!-- <img style="width:1.4%" class="navbar-brand-img ml-3" src="<?= base_url(); ?>assets/img/ic_symadeco.svg"></img> -->
+        <img style="width:1.4%" class="navbar-brand-img ml-3" src="<?= base_url(); ?>assets/img/ic_symadeco.svg"></img>
         <a class="navbar-brand" href="<?php echo site_url('Dashboard'); ?>">SYMA Decoration</a>
         <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2 ml-0" id="sidebarToggle" href="assets/#"><i data-feather="menu"></i></button>
         <ul class="navbar-nav align-items-center ml-auto">
