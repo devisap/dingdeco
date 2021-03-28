@@ -41,7 +41,7 @@
                                     echo '
                                         <tr>
                                             <td>' . $item->NAMA_PAKET . '</td>
-                                            <td>' . $item->HARGA_PAKET . '</td>
+                                            <td>Rp ' . number_format($item->HARGA_PAKET,0,',','.') . '</td>
                                             <td> 
                                                 <button class="btn btn-sm btn-primary detailPaket ml-1" data-id="'. $item->ID_PAKET .'" type="button" data-toggle="modal" data-target="#detailPaket"><i class="fa fa-ellipsis-h"></i></button>
                                                 <button class="btn btn-sm btn-warning editPaket ml-1" data-id="'. $item->ID_PAKET .'" type="button" data-toggle="modal" data-target="#editPaket"><i class="fa fa-edit"></i></button>
