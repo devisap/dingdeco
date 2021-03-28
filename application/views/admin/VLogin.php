@@ -23,7 +23,11 @@
                             <!-- Basic login form-->
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header justify-content-center">
-                                    <h3 class="font-weight-light text-md-center my-4">Login</h3>
+                                    <div class="strong form-group d-flex align-items-center justify-content-center mt-4 mb-0">
+                                        <img style="width:5%" class="navbar-brand-img ml-3" src="<?= base_url(); ?>assets/img/ic_symadeco.svg"></img>
+                                        &nbsp;SYMA Decoration
+                                    </div>
+                                    <h6 class="font-weight-light text-md-center my-4">Masukan informasi akun Anda</h6>
                                 </div>
                                 <div class="card-body">
                                     <!-- Login form-->

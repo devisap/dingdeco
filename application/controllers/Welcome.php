@@ -2,6 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
+	public function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('form');
+        $this->load->helper('url');
+        $this->load->helper('file');
+        $this->load->library('table');
+        $this->load->library('upload');
+        
+    }
 
 	/**
 	 * Index Page for this controller.
@@ -43,5 +53,16 @@ class Welcome extends CI_Controller {
         );
         //Change this 
         $this->template->view('pengguna/VPengguna', $data);
+    }
+
+	//Landing Page
+	public function landingpage()
+    {
+
+        $data = array(
+            'title' => 'Landing Page | SYMA Decoration'
+        );
+        //Change this 
+        $this->template->view('landingpage/VLandingPage', $data);
     }
 }
