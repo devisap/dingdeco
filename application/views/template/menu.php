@@ -18,8 +18,13 @@
     </a>
     <div class="collapse" id="collapseDashboards" data-parent="#accordionSidenav">
         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+<<<<<<< Updated upstream
             <a class="nav-link" href="<?php echo site_url('Proyek'); ?>">
                 <i class="fas fa-list ml-2 mr-2 fa-lg  fa-fw"></i>
+=======
+            <a class="nav-link" href="<?php echo site_url('pemesanan'); ?>">
+                <i class="fas fa-list ml-2 mr-2 fa-lg"></i>
+>>>>>>> Stashed changes
                 Daftar Pemesanan
             </a>
             <a class="nav-link" href="javascript:void(0);">

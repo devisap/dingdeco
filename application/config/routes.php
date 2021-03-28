@@ -73,3 +73,10 @@ $route['paket/store']            = 'PaketController/store';
 $route['paket/edit']             = 'PaketController/edit';
 $route['paket/ajxGet']           = 'PaketController/ajxGet';
 $route['paket/delete']           = 'PaketController/delete';
+
+// Proyek Pemesanan
+$route['pemesanan']              = 'ProyekController/vPemesanan';
+$route['pemesanan/store']        = 'ProyekController/store';
+$route['pemesanan/edit']         = 'ProyekController/edit';
+$route['pemesanan/ajxGet']       = 'ProyekController/ajxGet';
+$route['pemesanan/delete']       = 'ProyekController/delete';

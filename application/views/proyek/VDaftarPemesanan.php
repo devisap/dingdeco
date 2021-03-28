@@ -35,23 +35,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>2019081600000001</td>
-                                <td>Dedy Hermawan</td>
-                                <td>Marketing A</td>
-                                <td>Hawai</td>
-                                <td>085732694267</td>
-                                <td>Rp14.000.000</td>
-                                <td>20 Aug 2019 14:05</td>
-                                <td>
-                                    <div class="badge badge-success badge-pill">Baru</div>
-                                </td>
-                                <td>
-                                    <button class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editModalPemesanan"><i class="fa fa-edit"></i></button>
-                                    <button class="btn btn-sm btn-green ml-1" type="button" data-toggle="modal" data-target="#statusModal"><i class="fa fa-check"></i></button>
-                                    <button class="btn btn-sm btn-dark ml-1" type="button"><i class="fa fa-print"></i></button>
-                                </td>
-                            </tr>
+                            <?php
+                                foreach($pesanan as $items){
+                                    $status = $items->STATUS_PEMESANAN;
+                                    $showstat = $status == 0 ? 'Baru' : ( $status == 1 ? 'Cek Lokasi' : ( $status == 2 ? 'Booking' : ( $status == 3 ? 'Deal' : ( $status == 4 ? 'Dikirim' : ( $status == 5 ? 'Produksi' : ( $status == 6 ? 'Dibongkar' : ( $status == 7 ? 'Selesai' : '')))))));
+                                    $date=date_create($items->TGLACARA_PEMESANAN);
+                                    
+                                    echo'
+                                        <tr>
+                                            <td>'.$items->NOMOR_PEMESANAN.'</td>
+                                            <td>'.$items->NAMA_KLIEN.'</td>
+                                            <td>'.$items->NAMA_PENGGUNA.'</td>
+                                            <td>'.$items->ALAMAT_PEMESANAN.'</td>
+                                            <td>'.$items->TELP_KLIEN.'</td>
+                                            <td>Rp '.number_format($items->BIAYA_PEMESANAN,0,',','.').'</td>
+                                            <td>'.date_format($date,"d M Y").'</td>
+                                            <td>
+                                                <div class="badge badge-success badge-pill">'.$showstat.'</div>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-warning editPesanan ml-1" data-id="'. $items->NOMOR_PEMESANAN .'" type="button" data-toggle="modal" data-target="#editPesanan"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-green statusModal ml-1" data-id="'. $items->NOMOR_PEMESANAN .'" type="button" data-toggle="modal" data-target="#statusModal"><i class="fa fa-check"></i></button>
+                                                <button class="btn btn-sm btn-dark ml-1" type="button"><i class="fa fa-print"></i></button>
+                                            </td>
+                                        </tr>
+                                    ';
+                                }
+                            ?>                            
                         </tbody>
                     </table>
                 </div>
@@ -67,61 +77,79 @@
                             </button>
                         </div>
                         <div class="modal-body">
+                            <form method="post" action="<?= site_url('pemesanan/store') ?>">
                             <div class="form-group">
                                 <label for="namaKlien">Klien</label>
-                                <select class="form-control" id="namaKlien">
-                                    <option>Nama Klien A</option>
-                                    <option>Nama Klien B</option>
+                                <select class="form-control" id="namaKlien" name="ID_KLIEN">
+                                <?php
+                                    foreach ($klien as $item) {
+                                        echo '
+                                                <option value="' . $item->ID_KLIEN . '">' . $item->NAMA_KLIEN . '</option>
+                                            ';
+                                    }
+                                ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="namaMarketing">Marketing</label>
-                                <select class="form-control" id="namaMarketing">
-                                    <option>Marketing A</option>
-                                    <option>Marketing B</option>
+                                <select class="form-control" id="namaMarketing" name="ID_PENGGUNA">
+                                <?php
+                                    foreach ($pengguna as $item) {
+                                        echo '
+                                                <option value="' . $item->ID_PENGGUNA . '">' . $item->NAMA_PENGGUNA . '</option>
+                                            ';
+                                    }
+                                ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="namaPaket">Paket</label>
-                                <select class="form-control" id="namaPaket">
-                                    <option>Paket A</option>
-                                    <option>Paket B</option>
+                                <select class="form-control" id="namaPaket" name="ID_PAKET">
+                                <?php
+                                    foreach ($paket as $item) {
+                                        echo '
+                                                <option value="' . $item->ID_PAKET . '">' . $item->NAMA_PAKET . '</option>
+                                            ';
+                                    }
+                                ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="uangMukalien">Uang Muka</label>
-                                <input type="text" name="uangMukalien" class="form-control" placeholder="Masukan Uang Muka">
+                                <input type="text" name="UANGMUKA_PEMESANAN" class="form-control" placeholder="Masukan Uang Muka">
                             </div>
                             <div class="form-group">
                                 <label for="biaya">Biaya</label>
-                                <input type="text" name="biaya" class="form-control" placeholder="Masukan Biaya">
+                                <input type="text" name="BIAYA_PEMESANAN" class="form-control" placeholder="Masukan Biaya">
                             </div>
                             <div class="form-group">
                                 <label for="deskripsi">Deskripsi</label>
-                                <input type="text" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi">
+                                <input type="text" name="DESKRIPSI_PEMESANAN" class="form-control" placeholder="Masukan Deskripsi">
                             </div>
                             <div class="form-group">
                                 <label for="alamatAcara">Alamat Acara</label>
-                                <input type="text" name="alamatAcara" class="form-control" placeholder="Masukan Alamat Acara">
+                                <input type="text" name="ALAMAT_PEMESANAN" class="form-control" placeholder="Masukan Alamat Acara">
                             </div>
                             <div class="form-group">
                                 <label for="tanggalAcara">Tanggal Acara</label>
-                                <input name="tanggalAcara" class="form-control" id="tanggalAcara" type="text" placeholder="Masukkan Tanggal" />
+                                <input name="TGLACARA_PEMESANAN" class="form-control" id="tanggalAcara" type="text" placeholder="Masukkan Tanggal" />
                             </div>
                             <div class="form-group">
                                 <label for="tanggalSelesai">Tanggal Selesai</label>
-                                <input name="tanggalSelesai" class="form-control" id="tanggalSelesai" type="text" placeholder="Masukkan Tanggal" />
+                                <input name="TGLSELESAI_PEMESANAN" class="form-control" id="tanggalSelesai" type="text" placeholder="Masukkan Tanggal" />
                             </div>
                         </div>
                         <div class="modal-footer">
+                            <input type="hidden" name="NOMOR_PEMESANAN" class="form-control" value="<?= date('Ymd-His') ?>">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
-                            <button type="button" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
+                            <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
             <!-- Modal Edit Klien -->
-            <div class="modal fade" id="editModalPemesanan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="editPesanan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog " role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -131,47 +159,74 @@
                             </button>
                         </div>
                         <div class="modal-body">
+                        <form method="post" action="<?= site_url('pemesanan/edit') ?>">
                             <div class="form-group">
                                 <label for="namaKlien">Klien</label>
-                                <input type="text" name="namaKlien" class="form-control">
+                                <select class="form-control" id="namaKlien" name="ID_KLIEN">
+                                <?php
+                                    foreach ($klien as $item) {
+                                        echo '
+                                                <option value="' . $item->ID_KLIEN . '">' . $item->NAMA_KLIEN . '</option>
+                                            ';
+                                    }
+                                ?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="namaMarketing">Marketing</label>
-                                <input type="text" name="namaMarketing" class="form-control">
+                                <select class="form-control" id="namaMarketing" name="ID_PENGGUNA">
+                                <?php
+                                    foreach ($pengguna as $item) {
+                                        echo '
+                                                <option value="' . $item->ID_PENGGUNA . '">' . $item->NAMA_PENGGUNA . '</option>
+                                            ';
+                                    }
+                                ?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="namaPaket">Paket</label>
-                                <input type="text" name="namaPaket" class="form-control">
+                                <select class="form-control" id="namaPaket" name="ID_PAKET">
+                                <?php
+                                    foreach ($paket as $item) {
+                                        echo '
+                                                <option value="' . $item->ID_PAKET . '">' . $item->NAMA_PAKET . '</option>
+                                            ';
+                                    }
+                                ?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="uangMuka">Uang Muka</label>
-                                <input type="text" name="uangMuka" class="form-control">
+                                <input type="text" id="uangMuka_edit" name="UANGMUKA_PEMESANAN" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="biaya">Biaya</label>
-                                <input type="text" name="biaya" class="form-control">
+                                <input type="text" id="biaya_edit" name="BIAYA_PEMESANAN" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="deskripsi">Deskripsi</label>
-                                <input type="text" name="deskripsi" class="form-control">
+                                <input type="text" id="deskripsi_edit" name="DESKRIPSI_PEMESANAN" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="alamatAcara">Alamat Acara</label>
-                                <input type="text" name="alamatAcara" class="form-control">
+                                <input type="text" id="alamat_edit" name="ALAMAT_PEMESANAN" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="editTanggalAcara">Tanggal Acara</label>
-                                <input name="editTanggalAcara" class="form-control" id="editTanggalAcara" type="text" />
+                                <label for="tglAcara_edit">Tanggal Acara</label>
+                                <input name="TGLACARA_PEMESANAN" class="form-control" id="tglAcara_edit" type="text" />
                             </div>
                             <div class="form-group">
-                                <label for="editTanggalSelesai">Tanggal Selesai</label>
-                                <input name="editTanggalSelesai" class="form-control" id="editTanggalSelesai" type="text" />
+                                <label for="tglSelesai_edit">Tanggal Selesai</label>
+                                <input name="TGLSELESAI_PEMESANAN" class="form-control" id="tglSelesai_edit" type="text" />
                             </div>
                         </div>
                         <div class="modal-footer">
+                            <input type="hidden" id="idPemesanan_edit" name="NOMOR_PEMESANAN" class="form-control">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
-                            <button type="button" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
+                            <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -183,21 +238,25 @@
                             <h4 class="modal-title" id="myModalLabel">Status</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
+                        <form action="<?= site_url('pemesanan/edit') ?>" method="post">
                         <div class="modal-body">
-                            <select class="js-example-basic-single" id="statusModal">
-                                <option>Baru</option>
-                                <option>Cek Lokasi</option>
-                                <option>Booking</option>
-                                <option>Deal</option>
-                                <option>Dikirim</option>
-                                <option>Produksi</option>
-                                <option>Dibongkar</option>
+                            <select class="js-example-basic-single" id="statusModal" name="STATUS_PEMESANAN">
+                                <option value="0">Baru</option>
+                                <option value="1">Cek Lokasi</option>
+                                <option value="2">Booking</option>
+                                <option value="3">Deal</option>
+                                <option value="4">Dikirim</option>
+                                <option value="5">Produksi</option>
+                                <option value="6">Dibongkar</option>
+                                <option value="7">Selesai</option>
                             </select>
                         </div>
                         <div class="modal-footer">
+                            <input type="hidden" id="nomorPesanan_edit" name="NOMOR_PEMESANAN" class="form-control">
                             <button type="button" class="btn btn-light" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -208,28 +267,28 @@
 <script type="text/javascript">
     //datepicker
     $('#tanggalAcara').datepicker({
-        format: 'dd-mm-yyyy',
+        format: 'yyyy-mm-dd',
         autoclose: true,
         todayHighlight: true,
     });
 
     $('#tanggalSelesai').datepicker({
-        format: 'dd-mm-yyyy',
+        format: 'yyyy-mm-dd',
         autoclose: true,
         todayHighlight: true,
     });
 
     $('#editTanggalAcara').datepicker({
-        format: 'dd-mm-yyyy',
+        format: 'yyyy-mm-dd',
         autoclose: true,
         todayHighlight: true,
     });
 
     $('#editTanggalSelesai').datepicker({
-        format: 'dd-mm-yyyy',
+        format: 'yyyy-mm-dd',
         autoclose: true,
         todayHighlight: true,
-    });
+    });    
 </script>
 <script>
     $().ready(function() {
@@ -241,10 +300,37 @@
             fixedColumns: false
         });
     });
+    $('#dataTableKlien tbody').on('click', '.editPesanan', function() {
+        const id = $(this).data('id');
+        $.ajax({
+            url: "<?= site_url('pemesanan/ajxGet') ?>",
+            type: "post",
+            dataType: 'json',
+            data: {
+                NOMOR_PEMESANAN: id
+            },
+            success: res => {
+                $('#idKlien_edit').val(res[0].ID_KLIEN)
+                $('#idPaket_edit').val(res[0].ID_PAKET)
+                $('#idPengguna_edit').val(res[0].ID_PENGGUNA)
+                $('#uangMuka_edit').val(res[0].UANGMUKA_PEMESANAN)
+                $('#biaya_edit').val(res[0].BIAYA_PEMESANAN)
+                $('#deskripsi_edit').val(res[0].DESKRIPSI_PEMESANAN)
+                $('#alamat_edit').val(res[0].ALAMAT_PEMESANAN)
+                $('#tglAcara_edit').val(res[0].TGLACARA_PEMESANAN)                
+                $('#tglSelesai_edit').val(res[0].TGLSELESAI_PEMESANAN)           
+                $('#idPemesanan_edit').val(res[0].NOMOR_PEMESANAN)
+            }
+        })
+    });
+    $('#dataTableKlien tbody').on('click', '.statusModal', function() {
+        const id = $(this).data('id');
+        $('#nomorPesanan_edit').val(id)
+    })
 </script>
 <script>
     $(document).ready(function() {
-        $('.js-example-basic-single').select2({
+        $('.js-example-basic-single').select({
             dropdownParent: "#statusModal"
         });
     });
