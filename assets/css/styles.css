@@ -20495,3 +20495,75 @@ pre[class*=language-] {
 .token.variable {
   color: #ff6666;
 }
+
+#logo-preview {
+  margin: auto;
+  display: none;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+#layanan1-preview {
+  display: none;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+#layanan2-preview {
+  display: none;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+#layanan3-preview {
+  display: none;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+#layanan4-preview {
+  display: none;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+#portofolio1-preview {
+  display: none;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+#portofolio2-preview {
+  display: none;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+#portofolio3-preview {
+  display: none;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+#portofolio4-preview {
+  display: none;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
