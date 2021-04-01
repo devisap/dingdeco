@@ -65,4 +65,56 @@ class Welcome extends CI_Controller {
         //Change this 
         $this->template->view('landingpage/VLandingPage', $data);
     }
+
+    //Proyek
+    public function suratkontrakkerja()
+    {
+
+        $data = array(
+            'title' => 'Surat Kontrak Kerja | SYMA Decoration'
+        );
+        //Change this 
+        $this->template->view('proyek/VSuratKontrakKerja', $data);
+    }
+
+    //Nota Pembayaran
+    public function notapembayaran()
+    {
+
+        $data = array(
+            'title' => 'Nota Pembayaran | SYMA Decoration'
+        );
+        //Change this 
+        $this->template->view('proyek/notapembayaran/VNotaPembayaran', $data);
+    }
+    public function tambahbarangpembayaran()
+    {
+
+        $data = array(
+            'title' => 'Tambah Barang Pembayaran | SYMA Decoration'
+        );
+        //Change this 
+        $this->template->view('proyek/notapembayaran/VTambahBarangPembayaran', $data);
+    }
+
+    //Nota Pengiriman
+    public function notapengiriman()
+    {
+
+        $data = array(
+            'title' => 'Nota Pengiriman | SYMA Decoration'
+        );
+        //Change this 
+        $this->template->view('proyek/notapengiriman/VNotaPengiriman', $data);
+    }
+    public function tambahbarangpengiriman()
+    {
+
+        $data = array(
+            'title' => 'Tambah Barang Pengiriman | SYMA Decoration'
+        );
+        //Change this 
+        $this->template->view('proyek/notapengiriman/VTambahBarangPengiriman', $data);
+    }
+
 }
