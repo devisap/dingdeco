@@ -23,15 +23,15 @@
                 <i class="fas fa-list ml-2 mr-2 fa-lg"></i>
                 Daftar Pemesanan
             </a>
-            <a class="nav-link" href="javascript:void(0);">
+            <a class="nav-link" href="<?php echo site_url('welcome/suratkontrakkerja'); ?>">
                 <i class="fas fa-envelope ml-2 mr-2 fa-lg fa-fw"></i>
                 Surat Kontrak Kerja
             </a>
-            <a class="nav-link" href="javascript:void(0);">
+            <a class="nav-link" href="<?php echo site_url('welcome/notapembayaran'); ?>">
                 <i class="fas fa-file-invoice-dollar ml-2 mr-2 fa-lg fa-fw"></i>
                 Nota Pembayaran
             </a>
-            <a class="nav-link" href="javascript:void(0);">
+            <a class="nav-link" href="<?php echo site_url('welcome/notapengiriman'); ?>">
                 <i class="fas fa-truck-moving ml-2 mr-2 fa-lg fa-fw"></i>
                 Nota Pengiriman
             </a>

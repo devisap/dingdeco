@@ -24,19 +24,18 @@
     <script src="<?= base_url(); ?>assets/js/plugin/feather-icons/4.27.0/feather.min.js" crossorigin="anonymous"></script>
     <script data-search-pseudo-elements defer src="<?= base_url(); ?>assets/js/plugin/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
-     <!-- CK editor JS harus di taruh sebelum, initialisasi editor pada textarea -->
-     <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
+    <!-- CK editor JS harus di taruh sebelum, initialisasi editor pada textarea -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
 
     <!-- Select2js -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 
 <body class="nav-fixed">
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-        <img style="width:1.4%" class="navbar-brand-img ml-3" src="<?= base_url(); ?>assets/img/ic_symadeco.svg"></img>
+        <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2 ml-3" id="sidebarToggle" href="assets/#"><i data-feather="menu"></i></button>
+        <img style="width:1.3%" class="navbar-brand-img ml-0" src="<?= base_url(); ?>assets/img/ic_symadeco.svg"></img>
         <a class="navbar-brand" href="<?php echo site_url('Dashboard'); ?>">SYMA Decoration</a>
-        <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2 ml-0" id="sidebarToggle" href="assets/#"><i data-feather="menu"></i></button>
         <ul class="navbar-nav align-items-center ml-auto">
             <!-- <li class="nav-item dropdown no-caret mr-3 dropdown-notifications list-pemberitahuan">
                 <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownMessages" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
