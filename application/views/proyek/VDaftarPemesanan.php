@@ -66,7 +66,7 @@
                     </table>
                 </div>
             </div>
-            <!-- Modal Tambah Klien -->
+            <!-- Modal Tambah Pemesanan -->
             <div class="modal fade" id="tambahModalPemesanan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog " role="document">
                     <div class="modal-content">
@@ -148,7 +148,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Modal Edit Klien -->
+            <!-- Modal Edit Pemesanan -->
             <div class="modal fade" id="editPesanan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog " role="document">
                     <div class="modal-content">

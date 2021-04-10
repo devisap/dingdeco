@@ -81,7 +81,7 @@
                                     <button title="Edit Nota Pembayaran" class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editNotaPembayaran"><i class="fa fa-edit"></i></button>
                                     <a title="Tambah Barang Pembayaran" class="btn btn-blue ml-1 btn-sm" type="button" href="<?php echo site_url('welcome/tambahbarangpembayaran'); ?>"><i class="fa fa-plus"></i></a>
                                     <button title="Ubah Status" class="btn btn-sm btn-green mt-2 ml-1" type="button" data-toggle="modal" data-target="#btnChangeStatus"><i class="fa fa-check"></i></button>
-                                    <button title="Nota Pembayaran" class="btn btn-sm btn-dark mt-2 ml-1" type="button"><i class="fa fa-print"></i></button>
+                                    <a title="Print Nota Pembayaran" class="btn btn-sm btn-dark mt-2 ml-1" type="button" href="<?php echo site_url('welcome/print_notapembayaran'); ?>"><i class="fa fa-print"></i></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -129,7 +129,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="editNotaPembayaran">Edit Pengguna</h5>
+                            <h5 class="modal-title" id="editNotaPembayaran">Edit Nota Pembayaran</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -151,12 +151,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea type="text" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi"></textarea>
+                                    <textarea type="text" name="deskripsi" class="form-control">lalalali</textarea>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" id="idPengguna_edit" name="ID_PENGGUNA" class="form-control">
+                            <input type="hidden" id="" name="" class="form-control">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>

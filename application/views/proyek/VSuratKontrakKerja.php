@@ -58,7 +58,7 @@
                                 <td>20 Aug 2019 14:05</td>
                                 <td>
                                     <button class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editKontrakKerja"><i class="fa fa-edit"></i></button>
-                                    <button class="btn btn-sm btn-dark ml-1" type="button"><i class="fa fa-print"></i></button>
+                                    <a class="btn btn-sm btn-dark ml-1" type="button" href="<?php echo site_url('welcome/print_suratkontrakkerja'); ?>"><i class="fa fa-print"></i></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -125,7 +125,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" id="idPengguna_edit" name="ID_PENGGUNA" class="form-control">
+                            <input type="hidden" id="" name="" class="form-control">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
