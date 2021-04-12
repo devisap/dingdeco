@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-md-3 ml-4">
                         <label>Pilih No Pemesanan : </label>
-                        <select class="form-control js-basic-single" id="KontrakKerja" name="">
+                        <select class="form-control js-basic-single" id="nopemesanan" name="">
                             <option>Pilih No Pemesanan</option>
                             <option value="1">00000013/III/SKK/2021</option>
                             <option value="2">00000012/IX/SKK/2019</option>
@@ -78,10 +78,10 @@
                                     <div class="badge badge-success badge-pill">Aktif</div>
                                 </td>
                                 <td>
-                                    <button title="Edit Nota Pembayaran" class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editNotaPengiriman"><i class="fa fa-edit"></i></button>
+                                    <button title="Edit Nota Pengiriman" class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editNotaPengiriman"><i class="fa fa-edit"></i></button>
                                     <a title="Tambah Barang Pengiriman" class="btn btn-blue ml-1 btn-sm" type="button" href="<?php echo site_url('welcome/tambahbarangpengiriman'); ?>"><i class="fa fa-plus"></i></a>
                                     <button title="Ubah Status" class="btn btn-sm btn-green mt-2 ml-1" type="button" data-toggle="modal" data-target="#btnChangeStatus"><i class="fa fa-check"></i></button>
-                                    <button title="Nota Pembayaran" class="btn btn-sm btn-dark mt-2 ml-1" type="button"><i class="fa fa-print"></i></button>
+                                    <a title="Print Nota Pengiriman" class="btn btn-sm btn-dark mt-2 ml-1" type="button" href="<?php echo site_url('welcome/print_notapengiriman'); ?>"><i class="fa fa-print"></i></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -90,11 +90,11 @@
             </div>
 
             <!-- Modal Tambah Nota Pengiriman -->
-            <div class="modal fade" id="tambahNotaPengiriman" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="tambahNotaPengiriman" tabindex="-1" role="dialog" aria-labelledby="tambahNotaPengiriman" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Tambah Nota Pengiriman</h5>
+                            <h5 class="modal-title" id="tambahNotaPengiriman">Tambah Nota Pengiriman</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -102,13 +102,21 @@
                         <div class="modal-body">
                             <form method="post" action="">
                                 <div class="form-group">
-                                    <label for="KontrakKerja">No Pemesanan</label>
-                                    <select class="form-control" id="KontrakKerja" name="">
+                                    <label for="nopemesanan">No Pemesanan</label>
+                                    <select class="form-control" id="nopemesanan" name="">
                                         <option>Pilih No Pemesanan</option>
                                         <option value="1">2019081600000001</option>
                                         <option value="2">2019090700000002</option>
                                         <option value="3">2021030700000003</option>
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tanggalKirim">Tanggal Kirim</label>
+                                    <input name="" class="form-control" id="tanggalKirim" type="text" placeholder="Masukkan Tanggal" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="penerima">Penerima</label>
+                                    <input type="text" name="deskripsi" class="form-control" placeholder="Masukan Penerima"></input>
                                 </div>
                                 <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
@@ -129,7 +137,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="editNotaPengiriman">Edit Pengguna</h5>
+                            <h5 class="modal-title" id="editNotaPengiriman">Edit Nota Pengiriman</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -137,12 +145,12 @@
                         <div class="modal-body">
                             <form action="" method="post">
                                 <div class="form-group">
-                                    <label for="alamatAcara">No Nota</label>
+                                    <label for="noNota">No Nota</label>
                                     <span type="text" name="" class="form-control">NB00000001</span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="KontrakKerja">No Pemesanan</label>
-                                    <select class="form-control" id="KontrakKerja" name="">
+                                    <label for="noPemesanan">No Pemesanan</label>
+                                    <select class="form-control" id="noPemesanan" name="">
                                         <option>Pilih No Pemesanan</option>
                                         <option value="1">00000013/III/SKK/2021</option>
                                         <option value="2">00000012/IX/SKK/2019</option>
@@ -150,13 +158,21 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label for="tanggalKirim">Tanggal Kirim</label>
+                                    <input name="" class="form-control" id="edittanggalKirim" type="text" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="penerima">Penerima</label>
+                                    <input type="text" name="deskripsi" class="form-control" ></input>
+                                </div>
+                                <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea type="text" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi"></textarea>
+                                    <textarea type="text" name="deskripsi" class="form-control" ></textarea>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" id="idPengguna_edit" name="ID_PENGGUNA" class="form-control">
+                            <input type="hidden" id="" name="" class="form-control">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
@@ -207,11 +223,25 @@
             console.log(rowHtml);
             table.row.add($(rowHtml)).draw();
         });
-
     });
 </script>
 <script>
     $(document).ready(function() {
         $('.js-basic-single').select2();
     });
+</script>
+<script>
+     //datepicker kirim
+     $('#tanggalKirim').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+        });
+
+        //datepicker Edit kirim
+     $('#edittanggalKirim').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+        });
 </script>
