@@ -63,6 +63,33 @@ class Welcome extends CI_Controller
         $this->template->view('landingpage/VLandingPage', $data);
     }
 
+    public function home()
+    {
+
+        $data = array(
+            'title' => 'Landing Page | SYMA Decoration'
+        );
+        $this->load->view('landingpage/VHome');
+    }
+
+    public function landingpaket()
+    {
+
+        $data = array(
+            'title' => 'Landing Page | SYMA Decoration'
+        );
+        $this->load->view('landingpage/VHome');
+    }
+
+    public function landingregistrasi()
+    {
+
+        $data = array(
+            'title' => 'Landing Page | SYMA Decoration'
+        );
+        $this->load->view('landingpage/VHome');
+    }
+
     //Proyek
     public function suratkontrakkerja()
     {
