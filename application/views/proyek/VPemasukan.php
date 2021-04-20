@@ -52,15 +52,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>NP00000001</td>
-                                <td>16 Sep 2019</td>
-                                <td>Rp4.000.000</td>
-                                <td>Uang muka</td>
-                                <td>
-                                    <button title="Edit Pemasukan" class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editPemasukan"><i class="fa fa-edit"></i></button>
-                                </td>
-                            </tr>
+                            <?php
+                                foreach($pemasukan as $items){
+                                    $date=date_create($items->TGLMASUK_PEMASUKAN);
+                                    
+                                    echo'
+                                        <tr>
+                                            <td>'.$items->NOMOR_PEMASUKAN.'</td>
+                                            <td>'.date_format($date,"d M Y").'</td>
+                                            <td>Rp '.number_format($items->JML_PEMASUKAN,0,',','.').'</td> 
+                                            <td>'.$items->KETERANGAN_PEMASUKAN.'</td>
+                                            <td>
+                                                <button title="Edit Pemasukan" class="btn btn-sm btn-warning ml-1 editPemasukan" type="button" data-id="'.$items->NOMOR_PEMASUKAN.'" data-toggle="modal" data-target="#editPemasukan"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                    ';
+                                }
+                            ?>   
                         </tbody>
                     </table>
                 </div>
@@ -77,33 +85,36 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="">
+                            <form method="post" action="<?= site_url('pemasukan/store') ?>">
                                 <div class="form-group">
                                     <label for="noNota">No Nota</label>
-                                    <input name="" class="form-control" id="noNota" type="text" placeholder="Masukkan Nomor Nota" />
+                                    <input name="NOMOR_PEMASUKAN" class="form-control" id="noNota" type="text" placeholder="Masukkan Nomor Nota" />
                                 </div>
                                 <div class="form-group">
                                     <label for="Pemesanan">No Pemesanan</label>
-                                    <select class="form-control" id="Pemesanan" name="">
+                                    <select class="form-control" id="Pemesanan" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
-                                        <option value="1">2019081600000001</option>
-                                        <option value="2">2019090700000002</option>
-                                        <option value="3">2021030700000003</option>
+                                        <?php
+                                        foreach ($pemesanan as $item) {
+                                            echo '
+                                                <option value="' . $item->NOMOR_PEMESANAN . '">' . $item->NOMOR_PEMESANAN . '</option>
+                                            ';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="tambahTanggalMasuk">Tanggal Masuk</label>
-                                    <input name="" class="form-control" id="tambahTanggalMasuk" type="text" placeholder="Masukkan Tanggal" />
+                                    <input name="TGLMASUK_PEMASUKAN" class="form-control" id="tambahTanggalMasuk" type="text" placeholder="Masukkan Tanggal" />
                                 </div>
                                 <div class="form-group">
                                     <label for="jumlah">Jumlah</label>
-                                    <input type="number" name="" class="form-control" placeholder="Masukan Jumlah"></input>
+                                    <input type="number" name="JML_PEMASUKAN" class="form-control" placeholder="Masukan Jumlah"></input>
                                 </div>
                                 <div class="form-group">
                                     <label for="keterangan">Keterangan</label>
-                                    <textarea type="text" name="" class="form-control" placeholder="Masukan Keterangan"></textarea>
+                                    <textarea type="text" name="KETERANGAN_PEMASUKAN" class="form-control" placeholder="Masukan Keterangan"></textarea>
                                 </div>
-                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
@@ -118,42 +129,45 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="editPemasukan">Edit Pemasukan 02 Sep 2019</h5>
+                            <h5 class="modal-title" id="editPemasukan">Edit Pemasukan</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="post">
+                            <form action="<?= site_url('pemasukan/edit') ?>" method="post">
                             <div class="form-group">
                                     <label for="noNota">No Nota</label>
-                                    <input name="" class="form-control" id="noNota" type="text"/>
+                                    <input name="NOMOR_PEMASUKAN" class="form-control" id="nomorPemasukan" type="text"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="Pemesanan">No Pemesanan</label>
-                                    <select class="form-control" id="Pemesanan" name="">
+                                    <select class="form-control" id="nomorPemesanan" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
-                                        <option value="1">2019081600000001</option>
-                                        <option value="2">2019090700000002</option>
-                                        <option value="3">2021030700000003</option>
+                                        <?php
+                                        foreach ($pemesanan as $item) {
+                                            echo '
+                                                <option value="' . $item->NOMOR_PEMESANAN . '">' . $item->NOMOR_PEMESANAN . '</option>
+                                            ';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="editTanggalMasuk">Tanggal Masuk</label>
-                                    <input name="" class="form-control" id="editTanggalMasuk" type="text"/>
+                                    <input name="TGLMASUK_PEMASUKAN" class="form-control" id="tglMasuk" type="text"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="jumlah">Jumlah</label>
-                                    <input type="number" name="" class="form-control" ></input>
+                                    <input type="number" name="JML_PEMASUKAN" id="jmlPemasukan" class="form-control" ></input>
                                 </div>
                                 <div class="form-group">
                                     <label for="keterangan">Keterangan</label>
-                                    <textarea type="text" name="" class="form-control"></textarea>
+                                    <textarea type="text" name="KETERANGAN_PEMASUKAN" id="ketPemasukan" class="form-control"></textarea>
                                 </div>
-                            </form>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" id="" name="" class="form-control">
+                            <input type="hidden" id="nmrPemasukan" name="NOMOR_PEMASUKAN" class="form-control">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
@@ -224,5 +238,25 @@
         format: 'yyyy-mm-dd',
         autoclose: true,
         todayHighlight: true,
+    });
+    $('#dataTablePemasukan tbody').on('click', '.editPemasukan', function() {
+        const id = $(this).data('id');
+        $.ajax({
+            url: "<?= site_url('pemasukan/ajxGet') ?>",
+            type: "post",
+            dataType: 'json',
+            data: {
+                NOMOR_PEMASUKAN: id
+            },
+            success: res => {
+                $('#nomorPemasukan').val(res[0].NOMOR_PEMASUKAN)          
+                $('#nomorPemesanan').val(res[0].NOMOR_PEMESANAN)       
+                $('#tglMasuk').val(res[0].TGLMASUK_PEMASUKAN)     
+                $('#jmlPemasukan').val(res[0].JML_PEMASUKAN)     
+                $('#ketPemasukan').val(res[0].KETERANGAN_PEMASUKAN)     
+                $('#tglMasuk').val(res[0].TGLMASUK_PEMASUKAN)                     
+                $('#nmrPemasukan').val(res[0].NOMOR_PEMASUKAN)
+            }
+        })
     });
 </script>

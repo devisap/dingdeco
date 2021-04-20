@@ -87,3 +87,29 @@ $route['inventaris/store']        = 'InventarisController/store';
 $route['inventaris/edit']         = 'InventarisController/edit';
 $route['inventaris/ajxGet']       = 'InventarisController/ajxGet';
 $route['inventaris/delete']       = 'InventarisController/delete';
+
+// Proyek Surat Kontrak Kerja
+$route['skk']              = 'SkkController/vSKK';
+$route['skk/store']        = 'SkkController/store';
+$route['skk/edit']         = 'SkkController/edit';
+$route['skk/ajxGet']       = 'SkkController/ajxGet';
+$route['skk/delete']       = 'SkkController/delete';
+
+// Proyek Pemasukan
+$route['pemasukan']        = 'PemasukanController/vPemasukan';
+$route['pemasukan/store']  = 'PemasukanController/store';
+$route['pemasukan/edit']   = 'PemasukanController/edit';
+$route['pemasukan/ajxGet'] = 'PemasukanController/ajxGet';
+
+// Proyek Pengeluaran
+$route['pengeluaran']        = 'PengeluaranController/vPengeluaran';
+$route['pengeluaran/store']  = 'PengeluaranController/store';
+$route['pengeluaran/edit']   = 'PengeluaranController/edit';
+$route['pengeluaran/ajxGet'] = 'PengeluaranController/ajxGet';
+
+// Proyek Nota Pembayaran
+$route['notapembayaran']                = 'NotaPembayaranController/vPembayaran';
+$route['notapembayaran/store']          = 'NotaPembayaranController/store';
+$route['notapembayaran/edit']           = 'NotaPembayaranController/edit';
+$route['notapembayaran/ajxGet']         = 'NotaPembayaranController/ajxGet';
+$route['notapembayaran/changeStatus']   = 'NotaPembayaranController/changeStatus';

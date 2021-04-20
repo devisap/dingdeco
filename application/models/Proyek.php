@@ -30,6 +30,28 @@
         public function getPengguna(){
             return $this->db->query("SELECT ID_PENGGUNA, NAMA_PENGGUNA FROM pengguna WHERE ID_JABATAN = 2")->result();
         }
+        public function getPemesanan(){
+            return $this->db->query("SELECT * FROM pemesanan")->result();
+        }
+        public function getSKKFilter($param){
+            return $this->db->where($param['filter'])->get('skk')->result();
+        }
+        public function getSKK(){
+            $this->db->select('*');
+            $this->db->from('skk');
+            $this->db->join('pemesanan', 'skk.NOMOR_PEMESANAN = pemesanan.NOMOR_PEMESANAN');
+            $this->db->join('klien', 'pemesanan.ID_KLIEN = klien.ID_KLIEN');            
+            $this->db->join('pengguna', 'pemesanan.ID_PENGGUNA = pengguna.ID_PENGGUNA');
+            $query = $this->db->get();
+            return $query->result();
+        }
+        public function updateSKK($param){
+            return $this->db->where('NOMOR_SKK', $param['NOMOR_SKK'])->update('skk', $param);;
+        }  
+        public function insertSKK($param){
+            $this->db->insert('skk', $param);
+            return $this->db->insert_id();
+        }
         public function getFA(){
             $this->db->select('*');
             $this->db->from('pemesanan');

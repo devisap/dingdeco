@@ -140,7 +140,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" name="NOMOR_PEMESANAN" class="form-control" value="<?= date('Ymd-His') ?>">
+                            <input type="hidden" name="NOMOR_PEMESANAN" class="form-control" value="<?= date('YmdHis') ?>">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
