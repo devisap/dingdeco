@@ -22,6 +22,7 @@
                 <div class="row">
                     <div class="col-md-3 ml-4">
                         <label>Pilih No Pemesanan : </label>
+                        <br>
                         <select class="form-control js-basic-single" id="KontrakKerja" name="">
                             <option>Pilih No Pemesanan</option>
                             <option value="1">00000013/III/SKK/2021</option>
@@ -31,6 +32,7 @@
                     </div>
                     <div class="col-md-3 ml-4">
                         <label>Tanggal Masuk : </label>
+                        <br>
                         <input name="" class="form-control" id="tanggalMasuk" type="text" placeholder="Masukkan Tanggal" />
                     </div>
                     <div class="col-md-2 mt-2">
@@ -92,7 +94,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Pemesanan">No Pemesanan</label>
-                                    <select class="form-control" id="Pemesanan" name="NOMOR_PEMESANAN">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="Pemesanan" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
                                         <?php
                                         foreach ($pemesanan as $item) {
@@ -142,7 +145,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Pemesanan">No Pemesanan</label>
-                                    <select class="form-control" id="nomorPemesanan" name="NOMOR_PEMESANAN">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="nomorPemesanan" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
                                         <?php
                                         foreach ($pemesanan as $item) {

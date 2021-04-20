@@ -22,7 +22,8 @@
                 <div class="row">
                     <div class="col-md-3 ml-4">
                         <label>Pilih No Pemesanan : </label>
-                        <select class="form-control js-basic-single" id="KontrakKerja" name="">
+                        <br>
+                        <select class="form-control" name="">
                             <option>Pilih No Pemesanan</option>
                             <option value="1">00000013/III/SKK/2021</option>
                             <option value="2">00000012/IX/SKK/2019</option>
@@ -31,7 +32,8 @@
                     </div>
                     <div class="col-md-3 ml-4">
                         <label>Status : </label>
-                        <select class="form-control js-basic-single">
+                        <br>
+                        <select class="form-control">
                             <option>Aktif</option>
                             <option>Nonaktif</option>
                         </select>
@@ -109,7 +111,8 @@
                                 <div class="form-group">
                                 <input type="hidden" name="NOMOR_PEMBAYARAN" class="form-control" value="<?= date('dHis') ?>">
                                     <label for="KontrakKerja">No Pemesanan</label>
-                                    <select class="form-control" id="KontrakKerja" name="NOMOR_PEMESANAN">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="KontrakKerja" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
                                         <?php
                                         foreach ($pemesanan as $item) {
@@ -151,7 +154,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="KontrakKerja">No Pemesanan</label>
-                                    <select class="form-control" id="nomorPemesanan" name="NOMOR_PEMESANAN">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="nomorPemesanan" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
                                         <?php
                                         foreach ($pemesanan as $item) {
@@ -232,11 +236,6 @@
     $('#dataTableNotaPembayaran tbody').on('click', '.btnChangeStatus', function() {
         const id = $(this).data('id');
         $('#pembayaran_changeStatus').val(id)
-    })
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('.js-basic-single').select2();
-        });
+    });
     </script>
 </main>

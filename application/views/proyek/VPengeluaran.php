@@ -22,7 +22,8 @@
                 <div class="row">
                     <div class="col-md-3 ml-4">
                         <label>Pilih No Pemesanan : </label>
-                        <select class="form-control js-basic-single" id="KontrakKerja" name="">
+                        <br>
+                        <select class="form-control" id="KontrakKerja" name="">
                             <option>Pilih No Pemesanan</option>
                             <option value="1">00000013/III/SKK/2021</option>
                             <option value="2">00000012/IX/SKK/2019</option>
@@ -92,7 +93,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Pemesanan">No Pemesanan</label>
-                                    <select class="form-control" id="Pemesanan" name="NOMOR_PEMESANAN">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="Pemesanan" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
                                         <?php
                                         foreach ($pemesanan as $item) {
@@ -142,7 +144,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Pemesanan">No Pemesanan</label>
-                                    <select class="form-control" id="nomorPemesanan" name="NOMOR_PEMESANAN">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="nomorPemesanan" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
                                         <?php
                                         foreach ($pemesanan as $item) {

@@ -6,7 +6,7 @@
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
                             <a onclick="history.back(-1)">
-                                <button class="btn btn-yellow btn-icon mr-2 my-1" type="button"><i class="fas fa-arrow-left"></i></button>
+                                <button class="btn btn-icon mr-2 my-1" type="button"><i class="fas fa-arrow-left" style="color:white"></i></button>
                             </a>
                             List Barang Pengiriman
                         </h1>
@@ -38,7 +38,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="form-group">
-                                                        <select name="" class="form-control js-basic-single" id="barang" rows="3">
+                                                        <select name="" class="form-control select-modal-width" id="barang" rows="3">
                                                             <option>Kursi</option>
                                                             <option>Meja</option>
                                                         </select>
@@ -87,11 +87,6 @@
                 table.row.add($(rowHtml)).draw();
             });
 
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('.js-basic-single').select2();
         });
     </script>
 </body>

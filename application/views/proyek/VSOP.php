@@ -22,7 +22,8 @@
                 <div class="row">
                     <div class="col-md-3 ml-4">
                         <label>Pilih No Nota Pengiriman : </label>
-                        <select class="form-control js-basic-single" id="" name="">
+                        <br>
+                        <select class="form-control" name="">
                             <option>Pilih No Nota Pengiriman</option>
                             <option value="1">00000013/III/SKK/2021</option>
                             <option value="2">00000012/IX/SKK/2019</option>
@@ -31,7 +32,8 @@
                     </div>
                     <div class="col-md-3 ml-4">
                         <label>Pilih No Pemesanan : </label>
-                        <select class="form-control js-basic-single" id="" name="">
+                        <br>
+                        <select class="form-control" name="">
                             <option>Pilih No Pemesanan</option>
                             <option value="1">00000013/III/SKK/2021</option>
                             <option value="2">00000012/IX/SKK/2019</option>
@@ -96,15 +98,18 @@
                         </div>
                         <div class="modal-body">
                             <form method="post" action="">
-                                <div class="col-md-6 ml-4">
+                                <div>
                                     <label>Pilih No Nota Pengiriman : </label>
-                                    <select class="form-control js-basic-single" id="" name="">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="" name="">
                                         <option>Pilih No Nota Pengiriman</option>
                                         <option value="1">00000013/III/SKK/2021</option>
                                         <option value="2">00000012/IX/SKK/2019</option>
                                         <option value="3">00000013/III/SKK/2021</option>
                                     </select>
                                 </div>
+                                <br>
+                                <label>Foto </label>
                                 <div class="sbp-preview">
                                     <div class="sbp-preview-content">
                                         <div class="form-group">
@@ -117,6 +122,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br>
+                                <label>Denah</label>
                                 <div class="sbp-preview">
                                     <div class="sbp-preview-content">
                                         <div class="form-group">
@@ -151,9 +158,10 @@
                         </div>
                         <div class="modal-body">
                             <form action="" method="post">
-                                <div class="col-md-6 ml-4">
+                                <div>
                                     <label>Pilih No Nota Pengiriman : </label>
-                                    <select class="form-control js-basic-single" id="" name="">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="" name="">
                                         <option>Pilih No Nota Pengiriman</option>
                                         <option value="1">00000013/III/SKK/2021</option>
                                         <option value="2">00000012/IX/SKK/2019</option>
@@ -161,6 +169,7 @@
                                     </select>
                                 </div>
                                 <br>
+                                <label>Foto</label>
                                 <div class="sbp-preview">
                                     <div class="sbp-preview-content">
                                         <div class="form-group">
@@ -173,6 +182,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br>
+                                <label>Denah</label>
                                 <div class="sbp-preview">
                                     <div class="sbp-preview-content">
                                         <div class="form-group">
@@ -247,11 +258,6 @@
         format: 'yyyy-mm-dd',
         autoclose: true,
         todayHighlight: true,
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        $('.js-basic-single').select2();
     });
 </script>
 <script type="text/javascript">

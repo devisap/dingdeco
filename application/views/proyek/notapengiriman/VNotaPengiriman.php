@@ -22,7 +22,8 @@
                 <div class="row">
                     <div class="col-md-3 ml-4">
                         <label>Pilih No Pemesanan : </label>
-                        <select class="form-control js-basic-single" id="nopemesanan" name="">
+                        <br>
+                        <select class="form-control" name="">
                             <option>Pilih No Pemesanan</option>
                             <option value="1">00000013/III/SKK/2021</option>
                             <option value="2">00000012/IX/SKK/2019</option>
@@ -31,7 +32,8 @@
                     </div>
                     <div class="col-md-3 ml-4">
                         <label>Status : </label>
-                        <select class="form-control js-basic-single">
+                        <br>
+                        <select class="form-control">
                             <option>Aktif</option>
                             <option>Nonaktif</option>
                         </select>
@@ -103,7 +105,8 @@
                             <form method="post" action="">
                                 <div class="form-group">
                                     <label for="nopemesanan">No Pemesanan</label>
-                                    <select class="form-control" id="nopemesanan" name="">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="nopemesanan" name="">
                                         <option>Pilih No Pemesanan</option>
                                         <option value="1">2019081600000001</option>
                                         <option value="2">2019090700000002</option>
@@ -150,7 +153,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="noPemesanan">No Pemesanan</label>
-                                    <select class="form-control" id="noPemesanan" name="">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="noPemesanan" name="">
                                         <option>Pilih No Pemesanan</option>
                                         <option value="1">00000013/III/SKK/2021</option>
                                         <option value="2">00000012/IX/SKK/2019</option>

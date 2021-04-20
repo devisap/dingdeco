@@ -116,11 +116,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
+                                    <br>
                                     <input type="text" name="ALAMAT_PENGGUNA" class="form-control" placeholder="Masukkan Alamat" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="Level">Level</label>
-                                    <select class="form-control" id="Level" name="ID_JABATAN">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="Level" name="ID_JABATAN">
                                         <option>Pilih Level</option>
                                         <option value="1">Owner / Super Admin</option>
                                         <option value="3">Admin Keuangan</option>
@@ -168,7 +170,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Level">Level</label>
-                                    <select class="form-control" id="levelPengguna" name="ID_JABATAN">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="levelPengguna" name="ID_JABATAN">
                                         <option>Pilih Level</option>
                                         <option value="1">Owner / Super Admin</option>
                                         <option value="3">Admin Keuangan</option>
