@@ -19,6 +19,7 @@
                 <div class="row">
                     <div class="col-md-3 ml-4">
                         <label>Klien : </label>
+                        <br>
                         <select class="form-control">
                             <option>Pilih Klien</option>
                             <option>Ilham</option>
@@ -27,6 +28,7 @@
                     </div>
                     <div class="col-md-3 ml-4">
                         <label>Marketing : </label>
+                        <br>
                         <select class="form-control">
                             <option>Pilih Marketing</option>
                             <option>Marketing A</option>

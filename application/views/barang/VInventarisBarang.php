@@ -22,13 +22,14 @@
                 <div class="row">
                     <div class="col-md-3 ml-4">
                         <label>Klien : </label>
+                        <br>
                         <select class="form-control">
                             <option>Pilih Klien</option>
                             <option>Ilham</option>
                             <option>Dedy</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mt-2">
+                    <div class="col-md-2 ml-2 mt-2">
                         <label></label>
                         <button type="submit" class="btn btn-primary btn-block">Tampilkan</button>
                     </div>

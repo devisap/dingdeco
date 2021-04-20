@@ -22,6 +22,7 @@
                 <div class="row">
                     <div class="col-md-3 ml-4">
                         <label>Klien : </label>
+                        <br>
                         <select class="form-control">
                             <option>Pilih Klien</option>
                             <option>Ilham</option>
@@ -87,7 +88,8 @@
                             <form method="post" action="<?= site_url('skk/store') ?>">
                                 <div class="form-group">
                                     <label for="KontrakKerja">No Pemesanan</label>
-                                    <select class="form-control" id="KontrakKerja" name="NOMOR_PEMESANAN">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="KontrakKerja" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
                                         <?php
                                         foreach ($pemesanan as $item) {
@@ -126,7 +128,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="PemesananEdit">No Pemesanan</label>
-                                    <select class="form-control" id="nomorPemesanan_edit" name="NOMOR_PEMESANAN">
+                                    <br>
+                                    <select class="form-control select-modal-width" id="nomorPemesanan_edit" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
                                         <?php
                                         foreach ($pemesanan as $item) {
