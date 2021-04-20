@@ -49,18 +49,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>00000013/III/SKK/2021</td>
-                                <td>2019081600000001</td>
-                                <td>Ilham</td>
-                                <td>Malang</td>
-                                <td>Rp14.000.000</td>
-                                <td>20 Aug 2019 14:05</td>
-                                <td>
-                                    <button class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editKontrakKerja"><i class="fa fa-edit"></i></button>
-                                    <a class="btn btn-sm btn-dark ml-1" type="button" href="<?php echo site_url('welcome/print_suratkontrakkerja'); ?>"><i class="fa fa-print"></i></a>
-                                </td>
-                            </tr>
+                            <?php
+                                foreach($skk as $items){     
+                                    $date=date_create($items->TGLACARA_PEMESANAN);
+                                    echo'
+                                        <tr>
+                                            <td>'.$items->NOMOR_SKK.'/VIII/SKK/'.date_format($date,"Y").'</td>
+                                            <td>'.$items->NOMOR_PEMESANAN.'</td>
+                                            <td>'.$items->NAMA_KLIEN.'</td>
+                                            <td>'.$items->ALAMAT_PEMESANAN.'</td>
+                                            <td>'.$items->BIAYA_PEMESANAN.'</td>
+                                            <td>'.date_format($date,"d M Y").'</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-warning ml-1 editKontrakKerja" type="button" data-id="'. $items->NOMOR_SKK .'" data-toggle="modal" data-target="#editKontrakKerja"><i class="fa fa-edit"></i></button>
+                                                <a class="btn btn-sm btn-dark ml-1" type="button" href="'.site_url('welcome/print_suratkontrakkerja').'"><i class="fa fa-print"></i></a>
+                                            </td>
+                                        </tr>
+                                    ';
+                                }
+                            ?> 
                         </tbody>
                     </table>
                 </div>
@@ -77,19 +84,23 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="">
+                            <form method="post" action="<?= site_url('skk/store') ?>">
                                 <div class="form-group">
                                     <label for="KontrakKerja">No Pemesanan</label>
-                                    <select class="form-control" id="KontrakKerja" name="">
+                                    <select class="form-control" id="KontrakKerja" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
-                                        <option value="1">2019081600000001</option>
-                                        <option value="2">2019090700000002</option>
-                                        <option value="3">2021030700000003</option>
+                                        <?php
+                                        foreach ($pemesanan as $item) {
+                                            echo '
+                                                <option value="' . $item->NOMOR_PEMESANAN . '">' . $item->NOMOR_PEMESANAN . '</option>
+                                            ';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
-                            </form>
                         </div>
                         <div class="modal-footer">
+                            <input type="hidden" name="NOMOR_SKK" class="form-control" value="<?= date('Ymds').'/III/SKK/2021' ?>">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
@@ -108,24 +119,27 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="post">
+                            <form action="<?= site_url('skk/edit') ?>" method="post">
                                 <div class="form-group">
-                                    <label for="alamatAcara">No Pemesanan</label>
-                                    <span type="text" name="" class="form-control">00000013/III/SKK/2021</span>
+                                    <label for="alamatAcara">No Surat</label>
+                                    <input type="text" id="nomorSKK_edit" class="form-control" disabled>
                                 </div>
                                 <div class="form-group">
-                                    <label for="KontrakKerja">No Pemesanan</label>
-                                    <select class="form-control" id="KontrakKerja" name="">
+                                    <label for="PemesananEdit">No Pemesanan</label>
+                                    <select class="form-control" id="nomorPemesanan_edit" name="NOMOR_PEMESANAN">
                                         <option>Pilih No Pemesanan</option>
-                                        <option value="1">00000013/III/SKK/2021</option>
-                                        <option value="2">00000012/IX/SKK/2019</option>
-                                        <option value="3">00000013/III/SKK/2021</option>
+                                        <?php
+                                        foreach ($pemesanan as $item) {
+                                            echo '
+                                                <option value="' . $item->NOMOR_PEMESANAN . '">' . $item->NOMOR_PEMESANAN . '</option>
+                                            ';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
-                            </form>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" id="" name="" class="form-control">
+                            <input type="hidden" id="nomorSKK_insert" name="NOMOR_SKK" class="form-control">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
@@ -145,5 +159,21 @@
             ],
             fixedColumns: false
         });
+    });
+    $('#dataTableKontrakKerja tbody').on('click', '.editKontrakKerja', function() {
+        const id = $(this).data('id');
+        $.ajax({
+            url: "<?= site_url('skk/ajxGet') ?>",
+            type: "post",
+            dataType: 'json',
+            data: {
+                NOMOR_SKK: id
+            },
+            success: res => {
+                $('#nomorPemesanan_edit').val(res[0].NOMOR_PEMESANAN)          
+                $('#nomorSKK_edit').val(res[0].NOMOR_SKK)       
+                $('#nomorSKK_insert').val(res[0].NOMOR_SKK)
+            }
+        })
     });
 </script>

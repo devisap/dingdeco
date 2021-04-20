@@ -23,11 +23,11 @@
                 <i class="fas fa-list ml-2 mr-2 fa-lg fa-fw"></i>
                 Daftar Pemesanan
             </a>
-            <a class="nav-link" href="<?php echo site_url('welcome/suratkontrakkerja'); ?>">
+            <a class="nav-link" href="<?php echo site_url('skk'); ?>">
                 <i class="fas fa-envelope ml-2 mr-2 fa-lg fa-fw"></i>
                 Surat Kontrak Kerja
             </a>
-            <a class="nav-link" href="<?php echo site_url('welcome/notapembayaran'); ?>">
+            <a class="nav-link" href="<?php echo site_url('notapembayaran'); ?>">
                 <i class="fas fa-file-invoice-dollar ml-2 mr-2 fa-lg fa-fw"></i>
                 Nota Pembayaran
             </a>
@@ -39,11 +39,11 @@
                 <i class="fas fa-map-marked-alt ml-2 mr-2 fa-lg fa-fw"></i>
                 SOP
             </a>
-            <a class="nav-link" href="<?php echo site_url('welcome/pemasukan'); ?>">
+            <a class="nav-link" href="<?php echo site_url('pemasukan'); ?>">
                 <i class="fas fa-sort-numeric-up ml-2 mr-2 fa-lg fa-fw"></i>
                 Pemasukan
             </a>
-            <a class="nav-link" href="<?php echo site_url('welcome/pengeluaran'); ?>">
+            <a class="nav-link" href="<?php echo site_url('pengeluaran'); ?>">
                 <i class="fas fa-sort-numeric-down ml-2 mr-2 fa-lg fa-fw"></i>
                 Pengeluaran
             </a>
