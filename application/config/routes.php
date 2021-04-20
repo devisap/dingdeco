@@ -80,3 +80,10 @@ $route['pemesanan/store']        = 'ProyekController/store';
 $route['pemesanan/edit']         = 'ProyekController/edit';
 $route['pemesanan/ajxGet']       = 'ProyekController/ajxGet';
 $route['pemesanan/delete']       = 'ProyekController/delete';
+
+// Inventaris Barang
+$route['inventaris']              = 'InventarisController/vInventaris';
+$route['inventaris/store']        = 'InventarisController/store';
+$route['inventaris/edit']         = 'InventarisController/edit';
+$route['inventaris/ajxGet']       = 'InventarisController/ajxGet';
+$route['inventaris/delete']       = 'InventarisController/delete';
