@@ -78,7 +78,7 @@ class Welcome extends CI_Controller
         $data = array(
             'title' => 'Landing Page | SYMA Decoration'
         );
-        $this->load->view('landingpage/VHome');
+        $this->load->view('landingpage/VPaketLanding');
     }
 
     public function landingregistrasi()
@@ -87,7 +87,7 @@ class Welcome extends CI_Controller
         $data = array(
             'title' => 'Landing Page | SYMA Decoration'
         );
-        $this->load->view('landingpage/VHome');
+        $this->load->view('landingpage/VRegistrasiLanding');
     }
 
     //Proyek
