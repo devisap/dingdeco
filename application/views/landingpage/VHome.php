@@ -21,7 +21,9 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="<?= base_url(); ?>Welcome/home"><img src="<?= base_url(); ?>assets/home/img/ic.svg" alt="..." /></a>
+            <a class="navbar-brand js-scroll-trigger" href="<?= base_url(); ?>Welcome/home">
+                <img style="height: 10%;" src="<?= base_url(); ?>assets/home/img/ic.svg" alt="..." />
+            </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ml-1"></i>
@@ -40,18 +42,18 @@
         </div>
     </nav>
     <!-- Masthead-->
-    <header class="masthead" style="background-image: url('<?=base_url()?>assets/home/img/header-bg.jpg')" id="beranda">
+    <header class="masthead" style="background-image: url('<?= base_url() ?>assets/home/img/header-bg.jpg')" id="beranda">
         <div class="container">
             <div class="masthead-heading text-left small text-uppercase">SYMA Decoration</div>
             <div class="masthead-subheading text-left">Penyewaan peralatan pesta dan dekorasi profesional di Malang.</div>
-            <a class="btn btn-primary float-left btn-xl text-uppercase js-scroll-trigger" href="http://bit.ly/RegistrasiSYMADECO">Hubungi Kami</a>
+            <a class="btn btn-primary float-left btn-lg js-scroll-trigger" href="http://bit.ly/RegistrasiSYMADECO">Hubungi Kami</a>
         </div>
     </header>
     <!-- Siapa kami-->
     <section class="page-section" id="tentang">
         <div class="container">
             <div class="row col-md-auto">
-            <img class="img-fluid h-25" src="<?= base_url(); ?>assets/home/img/about/about.jpg" alt="Responsive image" />
+                <img class="img-fluid h-25" src="<?= base_url(); ?>assets/home/img/about/about.jpg" alt="Responsive image" />
                 <div class="col text-left ml-4">
                     <h2 class="section-heading text-uppercase">Siapa Kami ?</h2>
                     <h3 class="section-subheading text-muted">Kami adalah penyedia jasa persewaaan peralatan dan dekorasi pesta yang didukung dengan tenaga kerja profesional serta ide-ide segar dan baru. Kami bertujuan memberikan pelayanan yang terbaik demi terwujudnya pesta impian Anda.</h3>
@@ -165,15 +167,15 @@
     <section class="page-section bg-light" id="kontak">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Alamat</h2>
-                <h3 class="section-subheading text-muted">Rumah Merah OXYZ Jl. Bantaran 1 No. 25 Malang</h3>
+                <h5 class="section-heading text-uppercase">Alamat</h5>
+                <p class="section-subheading text-muted">Rumah Merah OXYZ Jl. Bantaran 1 No. 25 Malang</p>
             </div>
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">NO. TELP. / WHATSAPP</h2>
-                <h3 class="section-subheading text-muted">+62 813 3000 2561</h3>
+                <h5 class="section-heading text-uppercase">NO. TELP. / WHATSAPP</h5>
+                <p class="section-subheading text-muted">+62 813 3000 2561</p>
             </div>
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">MEDIA SOSIAL</h2>
+                <h5 class="section-heading text-uppercase">MEDIA SOSIAL</h5>
                 <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/symadeco/" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/pg/Symadeco-Solution-2233848586732214" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="https://wa.me/6285155173430?text=%2AHai%2C%20symadeco%21%2ASilahkan%20berkunjung%20ke%20www.symadeco.comFacebook%2CInstagram%20%3A%20%40symadecoSilahkan%20tanya-tanya%20langsung%20tentang%20Sistem%20Manajemen%20Dekorasi%20symadeco.com%20%F0%9F%94%B7%F0%9F%94%B7%F0%9F%94%B7" target="_blank"><i class="fab fa-whatsapp"></i></a>
