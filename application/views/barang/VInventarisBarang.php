@@ -42,7 +42,6 @@
                                 <th>Gambar</th>
                                 <th>Nama</th>
                                 <th>Harga</th>
-                                <th>Tgl Pakai</th>
                                 <th>Jumlah</th>
                                 <th>Tersedia</th>
                                 <th>Terpakai</th>
@@ -52,23 +51,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <button class="btn btn-sm btn-light ml-1" type="button" data-toggle="modal" data-target="#tampilgambar"><i class="fa fa-image"></i></button>
-                                </td>
-                                <td>Ilham</td>
-                                <td>Rp14.000.000</td>
-                                <td>20 Aug 2019</td>
-                                <td>10</td>
-                                <td>400</td>
-                                <td>3</td>
-                                <td>2</td>
-                                <td>0</td>
-                                <td>
-                                    <button class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editBarang"><i class="fa fa-edit"></i></button>
-                                    <button class="btn btn-sm btn-dark ml-1" type="button"><i class="fa fa-print"></i></button>
-                                </td>
-                            </tr>
+                            <?php
+                                foreach ($inventaris as $item) {
+                                    echo '
+                                        <tr>
+                                            <td>
+                                                <button class="btn btn-sm btn-light ml-1 tampilGambar" data-source="'.$item->IMG_INVENTARIS.'" type="button" data-toggle="modal" data-target="#tampilgambar"><i class="fa fa-image"></i></button>
+                                            </td>
+                                            <td>'.$item->NAMA_INVENTARIS.'</td>
+                                            <td>'.$item->HARGA_INVENTARIS.'</td>
+                                            <td>'.$item->JMLBARANG_INVENTARIS.'</td>
+                                            <td>'.$item->JMLTERSEDIA_INVENTARIS.'</td>
+                                            <td>'.$item->JMLTERPAKAI_INVENTARIS.'</td>
+                                            <td>'.$item->JMLRUSAK_INVENTARIS.'</td>
+                                            <td>'.$item->JMLHILANG_INVENTARIS.'</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-warning ml-1 mdlEdit" type="button" data-toggle="modal" data-id="'.$item->ID_INVENTARIS.'" data-target="#mdlEdit"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-dark ml-1" type="button"><i class="fa fa-print"></i></button>
+                                            </td>
+                                        </tr>
+                                    ';
+                                }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -85,14 +89,14 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="">
+                            <form method="post" action="<?= site_url('inventaris/store')?>" enctype="multipart/form-data">
                                 <div class="sbp-preview">
                                     <div class="sbp-preview-content">
                                         <div class="form-group">
                                             <!-- wadah preview -->
-                                            <img id="gambar-preview" alt="image preview" />
+                                            <img id="gambar-preview" alt="image preview" style="max-width: 300px;" />
                                             <div class="custom-file">
-                                                <input type="file" name="gambar" class="custom-file-input gambar" id="source-gambar" onchange="previewGambar();">
+                                                <input type="file" name="image" class="custom-file-input gambar" id="source-gambar" onchange="previewGambar();">
                                                 <label class="custom-file-label label-gambar" for="image-source source-gambar">Pilih Gambar</label>
                                             </div>
                                         </div>
@@ -100,37 +104,33 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="namaKlien">Nama</label>
-                                    <input type="text" name="" class="form-control" placeholder="Masukan Nama Barang" required>
+                                    <input type="text" name="NAMA_INVENTARIS" class="form-control" placeholder="Masukan Nama Barang" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga</label>
-                                    <input type="text" name="" class="form-control" placeholder="Masukan Harga Barang" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tanggalPakai">Tanggal Pakai</label>
-                                    <input type="text" name="" class="form-control" placeholder="Tanggal Pakai" required>
+                                    <input type="number" name="HARGA_INVENTARIS" class="form-control" placeholder="Masukan Harga Barang" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="jumlah">Jumlah Barang</label>
-                                    <input type="text" name="" class="form-control" placeholder="Masukan Jumlah Barang" required>
+                                    <input type="text" name="" class="form-control jmlBarang" placeholder="Masukan Jumlah Barang" value="0" disabled>
+                                    <input type="hidden" name="JMLBARANG_INVENTARIS" class="form-control jmlBarang" value="0" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="tersedia">Barang Tersedia</label>
-                                    <input type="text" name="" class="form-control" placeholder="Masukan Barang Tersedia" required>
+                                    <input type="number" name="JMLTERSEDIA_INVENTARIS" data-var="jmlTersedia" class="form-control inptJml" placeholder="Masukan Barang Tersedia" value="0" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="terpakai">Barang Terpakai</label>
-                                    <input type="text" name="" class="form-control" placeholder="Masukan Barang Terpakai" required>
+                                    <input type="number" name="JMLTERPAKAI_INVENTARIS" data-var="jmlTerpakai" class="form-control inptJml" placeholder="Masukan Barang Terpakai" value="0" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="rusak">Barang Rusak</label>
-                                    <input type="text" name="" class="form-control" placeholder="Masukan Barang Rusak" required>
+                                    <input type="number" name="JMLRUSAK_INVENTARIS" data-var="jmlRusak" class="form-control inptJml" placeholder="Masukan Barang Rusak" value="0" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="hilang">Barang Hilang</label>
-                                    <input type="text" name="" class="form-control" placeholder="Masukan Barang Hilang" required>
+                                    <input type="number" name="JMLHILANG_INVENTARIS" data-var="jmlHilang" class="form-control inptJml" placeholder="Masukan Barang Hilang" value="0" required>
                                 </div>
-                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
@@ -141,7 +141,7 @@
                 </div>
             </div>
             <!-- Modal Edit Barang -->
-            <div class="modal fade" id="editBarang" tabindex="-1" role="dialog" aria-labelledby="editBarang" aria-hidden="true">
+            <div class="modal fade" id="mdlEdit" tabindex="-1" role="dialog" aria-labelledby="editBarang" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -151,55 +151,53 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="">
-                                <div class="sbp-preview">
+                            <form method="post" action="<?= site_url('inventaris/edit')?>">
+                            <div class="sbp-preview">
                                     <div class="sbp-preview-content">
                                         <div class="form-group">
                                             <!-- wadah preview -->
-                                            <img id="gambar-preview" alt="image preview" />
+                                            <div style="text-align: center;">
+                                                <img id="gambar-preview_edit" alt="image preview" style="max-width: 300px;" />
+                                            </div>
                                             <div class="custom-file">
-                                                <input type="file" name="logo" class="custom-file-input logo" id="source-gambar" onchange="previewGambar();">
-                                                <label class="custom-file-label label-logo" for="image-source source-gambar">Pilih Gambar</label>
+                                                <input type="file" name="" class="custom-file-input gambar_edit" id="source-gambar_edit" onchange="previewGambar_edit();">
+                                                <label class="custom-file-label label-gambar_edit" for="image-source source-gambar_edit">Pilih Gambar</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="namaKlien">Nama</label>
-                                    <input type="text" name="" class="form-control" required>
+                                    <input type="text" name="NAMA_INVENTARIS" id="namaInventaris_edit" class="form-control" placeholder="Masukan Nama Barang" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga</label>
-                                    <input type="text" name="" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tanggalPakai">Tanggal Pakai</label>
-                                    <input type="text" name="" class="form-control" required>
+                                    <input type="number" name="HARGA_INVENTARIS" id="hargaInventaris_edit" class="form-control" placeholder="Masukan Harga Barang" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="jumlah">Jumlah Barang</label>
-                                    <input type="text" name="" class="form-control" required>
+                                    <input type="text" name="" class="form-control jmlBarang_edit" placeholder="Masukan Jumlah Barang" value="0" disabled>
+                                    <input type="hidden" name="JMLBARANG_INVENTARIS" class="form-control jmlBarang_edit" value="0" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="tersedia">Barang Tersedia</label>
-                                    <input type="text" name="" class="form-control" required>
+                                    <input type="number" name="JMLTERSEDIA_INVENTARIS" data-var="jmlTersedia" id="jmlTersedia_edit" class="form-control inptJml_edit" placeholder="Masukan Barang Tersedia" value="0" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="terpakai">Barang Terpakai</label>
-                                    <input type="text" name="" class="form-control" required>
+                                    <input type="number" name="JMLTERPAKAI_INVENTARIS" data-var="jmlTerpakai" id="jmlTerpakai_edit" class="form-control inptJml_edit" placeholder="Masukan Barang Terpakai" value="0" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="rusak">Barang Rusak</label>
-                                    <input type="text" name="" class="form-control" required>
+                                    <input type="number" name="JMLRUSAK_INVENTARIS" data-var="jmlRusak" id="jmlRusak_edit" class="form-control inptJml_edit" placeholder="Masukan Barang Rusak" value="0" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="hilang">Barang Hilang</label>
-                                    <input type="text" name="" class="form-control" required>
+                                    <input type="number" name="JMLHILANG_INVENTARIS" data-var="jmlHilang" id="jmlHilang_edit" class="form-control inptJml_edit" placeholder="Masukan Barang Hilang" value="0" required>
                                 </div>
-                            </form>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" id="idPengguna_edit" name="ID_PENGGUNA" class="form-control">
+                            <input type="hidden" id="idInventaris_edit" name="ID_INVENTARIS" class="form-control">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
@@ -210,7 +208,7 @@
 
             <!-- Modal Tampil Gambar -->
             <div class="modal fade" id="tampilgambar" tabindex="-1" role="dialog" aria-labelledby="editKontrakKerja" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="tampilgambar">Gambar</h5>
@@ -219,11 +217,9 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="post">
-                                <div class="form-group">
-                                    <label for="tampilgambar">Gambar</label>
-                                </div>
-                            </form>
+                            <div style="text-align: center;">
+                                <img id="img_tampilGambar" style="max-width:750px;" />
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" id="" name="" class="form-control">
@@ -248,6 +244,19 @@
     });
 </script>
 <script type="text/javascript">
+    let countBarang = {
+        jmlTersedia : 0,
+        jmlTerpakai : 0,
+        jmlRusak : 0,
+        jmlHilang : 0
+    }
+
+    let countBarang_edit = {
+        jmlTersedia : 0,
+        jmlTerpakai : 0,
+        jmlRusak : 0,
+        jmlHilang : 0
+    }
     //preview sebelum tambah gambar
     function previewGambar() {
         document.getElementById("gambar-preview").style.display = "block";
@@ -257,8 +266,81 @@
             document.getElementById("gambar-preview").src = oFREvent.target.result;
         };
     };
+    function previewGambar_edit() {
+        document.getElementById("gambar-preview_edit").style.display = "block";
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("source-gambar_edit").files[0]);
+        oFReader.onload = function(oFREvent) {
+            document.getElementById("gambar-preview_edit").src = oFREvent.target.result;
+        };
+    };
     $(".gambar").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".label-gambar").addClass("selected").html(fileName);
     });
+    $('.inptJml').keyup(function(){
+        let val = $('.jmlBarang').val()
+        const variable = $(this).data('var');
+
+        countBarang = {
+            ...countBarang,
+            [variable]: parseInt($(this).val())
+        }
+
+        let jmlBarang = 0;
+        Object.values(countBarang).forEach(val => {
+            if(val){
+                jmlBarang += val
+            }
+        })
+        $('.jmlBarang').val(jmlBarang)
+    })
+    $('#dataTableKontrakKerja tbody').on('click', '.tampilGambar', function(){
+        const src = $(this).data('source')
+        $('#img_tampilGambar').attr('src', src)
+    })
+    $('#dataTableKontrakKerja tbody').on('click', '.mdlEdit', function(){
+        const id = $(this).data('id')
+
+        $.ajax({
+            url: '<?= site_url('inventaris/ajxGet')?>',
+            method: 'post',
+            dataType: 'json',
+            data: {ID_INVENTARIS : id},
+            success : function (res){
+                countBarang_edit.jmlTersedia = parseInt(res[0].JMLTERSEDIA_INVENTARIS)
+                countBarang_edit.jmlTerpakai = parseInt(res[0].JMLTERPAKAI_INVENTARIS)
+                countBarang_edit.jmlRusak    = parseInt(res[0].JMLRUSAK_INVENTARIS)
+                countBarang_edit.jmlHilang   = parseInt(res[0].JMLHILANG_INVENTARIS)
+
+                $('#idInventaris_edit').val(res[0].ID_INVENTARIS);
+                $('#gambar-preview_edit').attr('src', res[0].IMG_INVENTARIS);
+                $('#namaInventaris_edit').val(res[0].NAMA_INVENTARIS);
+                $('#hargaInventaris_edit').val(res[0].HARGA_INVENTARIS);
+                $('.jmlBarang_edit').val(res[0].JMLBARANG_INVENTARIS)
+                $('#jmlTersedia_edit').val(res[0].JMLTERSEDIA_INVENTARIS)
+                $('#jmlTerpakai_edit').val(res[0].JMLTERPAKAI_INVENTARIS)
+                $('#jmlRusak_edit').val(res[0].JMLRUSAK_INVENTARIS)
+                $('#jmlHilang_edit').val(res[0].JMLHILANG_INVENTARIS)
+            }
+        })
+    })
+    $('.inptJml_edit').keyup(function(){
+        let val = $('.jmlBarang_edit').val()
+        const variable = $(this).data('var');
+        console.log(val)
+
+        countBarang_edit = {
+            ...countBarang_edit,
+            [variable]: parseInt($(this).val())
+        }
+
+        let jmlBarang_edit = 0;
+        Object.values(countBarang_edit).forEach(val => {
+            if(val){
+                jmlBarang_edit += val
+            }
+        })
+        $('.jmlBarang_edit').val(jmlBarang_edit)
+    })
 </script>

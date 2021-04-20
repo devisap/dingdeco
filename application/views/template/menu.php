@@ -49,7 +49,7 @@
             </a>
         </nav>
     </div>
-    <a class="nav-link" href="<?php echo site_url('welcome/inventarisbarang'); ?>">
+    <a class="nav-link" href="<?php echo site_url('inventaris'); ?>">
         <i class="fa fa-warehouse ml-2 mr-3 fa-lg fa-fw"></i>
         Inventaris Barang
     </a>
