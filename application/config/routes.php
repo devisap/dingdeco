@@ -49,9 +49,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller']    = 'Admin';
+$route['default_controller']    = 'HomeController';
 $route['404_override']          = '';
 $route['translate_uri_dashes']  = FALSE;
+
+// Home
+$route['lpaket']                = 'HomeController/vPaket';
+$route['lorder']                = 'HomeController/vOrder';
+
 
 // KLIEN
 $route['klien']                 = 'KlienController/vKlien';
@@ -81,7 +86,7 @@ $route['pemesanan/edit']         = 'ProyekController/edit';
 $route['pemesanan/ajxGet']       = 'ProyekController/ajxGet';
 $route['pemesanan/delete']       = 'ProyekController/delete';
 
-// Inventaris Barang
+// Proyek Inventaris Barang
 $route['inventaris']              = 'InventarisController/vInventaris';
 $route['inventaris/store']        = 'InventarisController/store';
 $route['inventaris/edit']         = 'InventarisController/edit';
@@ -113,3 +118,10 @@ $route['notapembayaran/store']          = 'NotaPembayaranController/store';
 $route['notapembayaran/edit']           = 'NotaPembayaranController/edit';
 $route['notapembayaran/ajxGet']         = 'NotaPembayaranController/ajxGet';
 $route['notapembayaran/changeStatus']   = 'NotaPembayaranController/changeStatus';
+
+// Proyek Nota Pengiriman
+$route['notapengiriman']                = 'NotaPengirimanController/vPembayaran';
+$route['notapengiriman/store']          = 'NotaPengirimanController/store';
+$route['notapengiriman/edit']           = 'NotaPengirimanController/edit';
+$route['notapengiriman/ajxGet']         = 'NotaPengirimanController/ajxGet';
+$route['notapengiriman/changeStatus']   = 'NotaPengirimanController/changeStatus';
