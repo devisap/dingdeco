@@ -31,7 +31,7 @@
                 <i class="fas fa-file-invoice-dollar ml-2 mr-2 fa-lg fa-fw"></i>
                 Nota Pembayaran
             </a>
-            <a class="nav-link" href="<?php echo site_url('welcome/notapengiriman'); ?>">
+            <a class="nav-link" href="<?php echo site_url('notapengiriman'); ?>">
                 <i class="fas fa-truck-moving ml-2 mr-2 fa-lg fa-fw"></i>
                 Nota Pengiriman
             </a>

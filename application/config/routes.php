@@ -120,7 +120,7 @@ $route['notapembayaran/ajxGet']         = 'NotaPembayaranController/ajxGet';
 $route['notapembayaran/changeStatus']   = 'NotaPembayaranController/changeStatus';
 
 // Proyek Nota Pengiriman
-$route['notapengiriman']                = 'NotaPengirimanController/vPembayaran';
+$route['notapengiriman']                = 'NotaPengirimanController/vPengiriman';
 $route['notapengiriman/store']          = 'NotaPengirimanController/store';
 $route['notapengiriman/edit']           = 'NotaPengirimanController/edit';
 $route['notapengiriman/ajxGet']         = 'NotaPengirimanController/ajxGet';
