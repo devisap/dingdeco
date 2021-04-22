@@ -30,6 +30,10 @@
                             <option value="3">00000013/III/SKK/2021</option>
                         </select>
                     </div>
+                    <div class="col-md-2 ml-4">
+                        <label>Tanggal Kirim : </label>
+                        <input name="" class="form-control" id="tanggalKirim" type="text" placeholder="Tanggal Kirim" />
+                    </div>
                     <div class="col-md-3 ml-4">
                         <label>Status : </label>
                         <br>
