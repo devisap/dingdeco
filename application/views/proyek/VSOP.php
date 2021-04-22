@@ -221,13 +221,8 @@
                         </form>
                     </div>
                 </div>
-<<<<<<< HEAD
             </div>
             <!-- Modal View PDF -->
-=======
-            </div>       
-              <!-- Modal View PDF -->
->>>>>>> 661601034fec0b6ee8318cf3d7220680d45b050a
             <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModal" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
@@ -347,8 +342,8 @@
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".label-foto-edit").addClass("selected").html(fileName);
     });
-    $('#dataTableSOP tbody').on('click', '.pdfModal', function() {
+    $('#dataTableSOP tbody').on('click', '.mdlView', function() {
         const src = $(this).data("src")
-        $('#pdfModal_src').attr('src', src);
+        $('#mdlView_src').attr('src', src);
     })
 </script>
