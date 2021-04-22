@@ -49,7 +49,7 @@
                         <input name="" class="form-control" id="tanggalAcara" type="text" placeholder="Tanggal Acara" />
                     </div>
                 </div>
-                <div class="col-md-2 mt-2">
+                <div class="col-md-2 ml-3 mt-2">
                     <label></label>
                     <button type="submit" class="btn btn-primary btn-block">Tampilkan</button>
                 </div>
@@ -69,27 +69,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                                foreach($datatable as $items){
-                                    $date1=date_create($items->TGL_PENGIRIMAN);
-                                    $date2=date_create($items->TGLACARA_PEMESANAN);
-                                    
-                                    echo'
-                                        <tr>
-                                            <td>'.$items->NOMOR_PENGIRIMAN.'</td>
-                                            <td>'.$items->NOMOR_PEMESANAN.'</td>
-                                            <td>'.$items->NAMA_KLIEN.'</td>
-                                            <td>'.$items->ALAMAT_PEMESANAN.'</td>
-                                            <td>'.date_format($date1,"d M Y").'</td>
-                                            <td>'.date_format($date2,"d M Y").'</td>
-                                            <td>
-                                                <button title="Edit SOP" class="btn btn-sm btn-warning ml-1 editSOP" type="button" data-id="'.$items->NOMOR_PENGIRIMAN.'" data-toggle="modal" data-target="#editSOP"><i class="fa fa-edit"></i></button>
-                                                <a title="Print SOP" class="btn btn-sm btn-dark ml-1" type="button" href="'.site_url('welcome/print_sop').'"><i class="fa fa-print"></i></a>
-                                            </td>
-                                        </tr>
-                                    ';
-                                }
-                            ?>   
+                            <tr>
+                                <td>NK00000001</td>
+                                <td>2019081600000001</td>
+                                <td>Ilham</td>
+                                <td>Malang</td>
+                                <td>16 Sep 2019</td>
+                                <td>16 Sep 2019</td>
+                                <td>
+                                    <button title="Edit SOP" class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editSOP"><i class="fa fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-dark ml-1 mt-1" type="button" data-toggle="modal" data-target="#pdfModal"><i class="fa fa-print"></i></button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -106,19 +97,15 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="<?= site_url('sop/store') ?>" enctype="multipart/form-data">
+                            <form method="post" action="">
                                 <div>
                                     <label>Pilih No Nota Pengiriman : </label>
                                     <br>
-                                    <select class="form-control select-modal-width" name="NOMOR_PENGIRIMAN">
+                                    <select class="form-control select-modal-width" id="" name="">
                                         <option>Pilih No Nota Pengiriman</option>
-                                        <?php
-                                        foreach ($pengiriman as $item) {
-                                            echo '
-                                                <option value="' . $item->NOMOR_PENGIRIMAN . '">' . $item->NOMOR_PENGIRIMAN . '</option>
-                                            ';
-                                        }
-                                        ?>
+                                        <option value="1">00000013/III/SKK/2021</option>
+                                        <option value="2">00000012/IX/SKK/2019</option>
+                                        <option value="3">00000013/III/SKK/2021</option>
                                     </select>
                                 </div>
                                 <br>
@@ -149,6 +136,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
@@ -169,19 +157,15 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="<?= site_url('sop/edit') ?>" method="post" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <label for="nomorPengiriman_edit">Pilih No Nota Pengiriman : </label>
+                            <form action="" method="post">
+                                <div>
+                                    <label>Pilih No Nota Pengiriman : </label>
                                     <br>
-                                    <select class="form-control select-modal-width" id="nomorPengiriman_edit" name="NOMORTES">
+                                    <select class="form-control select-modal-width" id="" name="">
                                         <option>Pilih No Nota Pengiriman</option>
-                                        <?php
-                                        foreach ($pengiriman as $item) {
-                                            echo '
-                                                <option value="' . $item->NOMOR_PENGIRIMAN . '">' . $item->NOMOR_PENGIRIMAN . '</option>
-                                            ';
-                                        }
-                                        ?>
+                                        <option value="1">00000013/III/SKK/2021</option>
+                                        <option value="2">00000012/IX/SKK/2019</option>
+                                        <option value="3">00000013/III/SKK/2021</option>
                                     </select>
                                 </div>
                                 <br>
@@ -212,16 +196,36 @@
                                         </div>
                                     </div>
                                 </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" id="nmrPengiriman_edit" name="NOMOR_PENGIRIMAN" class="form-control">
+                            <input type="hidden" id="" name="" class="form-control">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
                         </form>
                     </div>
                 </div>
-            </div>         
+            </div>       
+              <!-- Modal View PDF -->
+              <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" >SOP</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe id="pdfModal_src" src="<?= base_url('assets/pdf/sop_pengiriman.pdf'); ?>" frameborder="0" width="100%" height="470px"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>

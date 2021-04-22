@@ -89,7 +89,7 @@
                                             <td>
                                                 <button class="btn btn-sm btn-warning editPesanan ml-1 mt-1" data-id="' . $items->NOMOR_PEMESANAN . '" type="button" data-toggle="modal" data-target="#editPesanan"><i class="fa fa-edit"></i></button>
                                                 <button class="btn btn-sm btn-green statusModal ml-1 mt-1" data-id="' . $items->NOMOR_PEMESANAN . '" type="button" data-toggle="modal" data-target="#statusModal"><i class="fa fa-check"></i></button>
-                                                <button class="btn btn-sm btn-dark ml-1 mt-1" type="button"><i class="fa fa-print"></i></button>
+                                                <button class="btn btn-sm btn-dark ml-1 mt-1" type="button" data-toggle="modal" data-target="#pdfModal"><i class="fa fa-print"></i></button>
                                             </td>
                                         </tr>
                                     ';
@@ -280,15 +280,15 @@
                         <form action="<?= site_url('pemesanan/edit') ?>" method="post">
                             <div class="modal-body">
                                 <select class="form-control select-modal-width">
-                                        <option value="0">Baru</option>
-                                        <option value="1">Cek Lokasi</option>
-                                        <option value="2">Booking</option>
-                                        <option value="3">Deal</option>
-                                        <option value="4">Dikirim</option>
-                                        <option value="5">Produksi</option>
-                                        <option value="6">Dibongkar</option>
-                                        <option value="7">Selesai</option>
-                                    </select>
+                                    <option value="0">Baru</option>
+                                    <option value="1">Cek Lokasi</option>
+                                    <option value="2">Booking</option>
+                                    <option value="3">Deal</option>
+                                    <option value="4">Dikirim</option>
+                                    <option value="5">Produksi</option>
+                                    <option value="6">Dibongkar</option>
+                                    <option value="7">Selesai</option>
+                                </select>
                             </div>
                             <div class="modal-footer">
                                 <input type="hidden" id="nomorPesanan_edit" name="NOMOR_PEMESANAN" class="form-control">
@@ -299,7 +299,25 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Modal View PDF -->
+            <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" >Daftar Pemesanan</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe id="pdfModal_src" src="<?= base_url('assets/pdf/form_pemesanan.pdf'); ?>" frameborder="0" width="100%" height="470px"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
