@@ -99,14 +99,6 @@ class Welcome extends CI_Controller
         );
         $this->template->view('proyek/VSuratKontrakKerja', $data);
     }
-    public function print_suratkontrakkerja()
-    {
-
-        $data = array(
-            'title' => 'Surat Kontrak Kerja | SYMA Decoration'
-        );
-        $this->template->view('pdf_templates/surat_kontrak_kerja', $data);
-    }
 
     //Nota Pembayaran
     public function notapembayaran()
@@ -124,14 +116,6 @@ class Welcome extends CI_Controller
             'title' => 'Tambah Barang Pembayaran | SYMA Decoration'
         );
         $this->template->view('proyek/notapembayaran/VTambahBarangPembayaran', $data);
-    }
-    public function print_notapembayaran()
-    {
-
-        $data = array(
-            'title' => 'Nota Pembayaran | SYMA Decoration'
-        );
-        $this->template->view('pdf_templates/nota_pembayaran', $data);
     }
 
     //Nota Pengiriman
@@ -151,14 +135,6 @@ class Welcome extends CI_Controller
         );
         $this->template->view('proyek/notapengiriman/VTambahBarangPengiriman', $data);
     }
-    public function print_notapengiriman()
-    {
-
-        $data = array(
-            'title' => 'Nota Pengiriman | SYMA Decoration'
-        );
-        $this->template->view('pdf_templates/nota_pengiriman', $data);
-    }
     
     //sop
     public function sop()
@@ -168,15 +144,6 @@ class Welcome extends CI_Controller
             'title' => 'SOP | SYMA Decoration'
         );
         $this->template->view('proyek/VSOP', $data);
-    }
-
-    public function print_sop()
-    {
-
-        $data = array(
-            'title' => 'SOP | SYMA Decoration'
-        );
-        $this->template->view('pdf_templates/sop_nota_pengiriman', $data);
     }
 
     //Pemasukan
@@ -229,14 +196,6 @@ class Welcome extends CI_Controller
         );
         $this->template->view('laporan/VKeuangan', $data);
     }
-    public function print_laporan_keuangan()
-    {
-
-        $data = array(
-            'title' => 'Laporan Keuangan | SYMA Decoration'
-        );
-        $this->template->view('pdf_templates/laporan_keuangan', $data);
-    }
 
     //laporan akhir acara
     public function laporan_akhir_acara()
@@ -248,12 +207,4 @@ class Welcome extends CI_Controller
         $this->template->view('laporan/VAkhiracara', $data);
     }
 
-    public function print_laporan_akhir_acara()
-    {
-
-        $data = array(
-            'title' => 'Laporan Akhir Acara | SYMA Decoration'
-        );
-        $this->template->view('pdf_templates/laporan_akhir_acara', $data);
-    }
 }

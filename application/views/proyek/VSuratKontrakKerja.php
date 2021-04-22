@@ -63,7 +63,7 @@
                                             <td>'.date_format($date,"d M Y").'</td>
                                             <td>
                                                 <button class="btn btn-sm btn-warning ml-1 editKontrakKerja" type="button" data-id="'. $items->NOMOR_SKK .'" data-toggle="modal" data-target="#editKontrakKerja"><i class="fa fa-edit"></i></button>
-                                                <a class="btn btn-sm btn-dark ml-1" type="button" href="'.site_url('welcome/print_suratkontrakkerja').'"><i class="fa fa-print"></i></a>
+                                                <button class="btn btn-sm btn-dark ml-1" type="button" data-toggle="modal" data-target="#pdfModal"><i class="fa fa-print"></i></button>
                                             </td>
                                         </tr>
                                     ';
@@ -147,6 +147,26 @@
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Modal View PDF -->
+             <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" >Surat Kontrak Kerja</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe id="pdfModal_src" src="<?= base_url('assets/pdf/surat_kontrak_kerja.pdf'); ?>" frameborder="0" width="100%" height="470px"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Tutup</button>
+                        </div>
                     </div>
                 </div>
             </div>
