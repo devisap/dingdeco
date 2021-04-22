@@ -21,7 +21,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-primary" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="<?= base_url(); ?>Welcome/home">
+            <a class="navbar-brand js-scroll-trigger" href="<?= site_url(); ?>">
                 <img style="height: 10%;" src="<?= base_url(); ?>assets/home/img/ic.svg" alt="..." />
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,8 +35,8 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#layanan">Layanan</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portofolio</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#kontak">Kontak</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url(); ?>Welcome/landingpaket">Paket</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url(); ?>Welcome/landingregistrasi">Pemesanan</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= site_url('lpaket')?>">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= site_url('lorder')?>">Pemesanan</a></li>
                 </ul>
             </div>
         </div>

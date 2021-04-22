@@ -20,4 +20,7 @@
         public function delete($param){
             return $this->db->where($param['ID_INVENTARIS'])->delete('inventaris_barang', $param);;
         }
+        public function getNumRows(){
+            return $this->db->get('inventaris_barang')->num_rows();
+        }
     }
