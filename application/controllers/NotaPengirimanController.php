@@ -9,7 +9,7 @@
             $data['pengiriman']     = $this->NotaPengiriman->getAll();
             $data['pemesanan']      = $this->NotaPengiriman->getPemesanan();
             
-            $this->template->view('proyek/notapengiriman/vNotaPengiriman', $data);
+            $this->template->view('proyek/notapengiriman/VNotaPengiriman', $data);
         }
         public function vManage($id){
             $data['title']          = 'Nota Pengiriman | SYMA Decoration';
@@ -18,7 +18,7 @@
             $data['numRows']        = $this->NotaPengiriman->getDetailNumRows(['NOMOR_PENGIRIMAN' => $id]);
             $data['noPengiriman']   = $id;
             
-            $this->template->view('proyek/notapengiriman/vTambahBarangPengiriman', $data);
+            $this->template->view('proyek/notapengiriman/VTambahBarangPengiriman', $data);
         }
     
         public function store(){
