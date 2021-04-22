@@ -5,10 +5,16 @@
             return $this->db->order_by('created_at', 'desc')->get('nota_pengiriman')->result();
         }
         public function get($param){
-            return $this->db->where($param['filter'])->get('nota_pengiriman')->result();
+            return $this->db->get_where('nota_pengiriman', $param)->result();
         }
         public function getLastId(){
             return $this->db->order_by('created_at', 'desc')->get_where('nota_pengiriman')->row();
+        }
+        public function getDetail($param){
+            return $this->db->get_where('nota_pengiriman_detail', $param)->result();
+        }
+        public function getDetailNumRows($param){
+            return $this->db->get_where('nota_pengiriman_detail', $param)->num_rows();
         }
         public function insert($param){
             $this->db->insert('nota_pengiriman', $param);
@@ -30,5 +36,5 @@
             $this->db->join('pemesanan b', 'a.NOMOR_PEMESANAN = b.NOMOR_PEMESANAN');   
             $query = $this->db->get();
             return $query->result();
-        }     
+        }
     }

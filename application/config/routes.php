@@ -57,6 +57,10 @@ $route['translate_uri_dashes']  = FALSE;
 $route['lpaket']                = 'HomeController/vPaket';
 $route['lorder']                = 'HomeController/vOrder';
 
+// Auth
+$route['login']                 = 'AuthController/vLogin';
+$route['logging']               = 'AuthController/login';
+$route['logout']                = 'AuthController/logout';
 
 // KLIEN
 $route['klien']                 = 'KlienController/vKlien';
@@ -124,4 +128,7 @@ $route['notapengiriman']                = 'NotaPengirimanController/vPengiriman'
 $route['notapengiriman/store']          = 'NotaPengirimanController/store';
 $route['notapengiriman/edit']           = 'NotaPengirimanController/edit';
 $route['notapengiriman/ajxGet']         = 'NotaPengirimanController/ajxGet';
+$route['notapengiriman/ajxManageGet']   = 'NotaPengirimanController/ajxManageGet';
 $route['notapengiriman/changeStatus']   = 'NotaPengirimanController/changeStatus';
+$route['notapengiriman/manage/(:any)']  = 'NotaPengirimanController/vManage/$1';
+$route['notapengiriman/manage/(:any)/set']     = 'NotaPengirimanController/set/$1';

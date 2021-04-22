@@ -76,7 +76,7 @@
                                             </td>
                                             <td>
                                                 <button title="Edit Nota Pengiriman" class="btn btn-sm btn-warning ml-1 mdlEdit" data-id="'.$item->NOMOR_PENGIRIMAN.'" type="button" data-toggle="modal" data-target="#mdlEdit"><i class="fa fa-edit"></i></button>
-                                                <a title="Tambah Barang Pengiriman" class="btn btn-blue ml-1 btn-sm" type="button" href=""><i class="fa fa-plus"></i></a>
+                                                <a title="Tambah Barang Pengiriman" class="btn btn-blue ml-1 btn-sm" type="button" href="'.site_url('notapengiriman/manage/'.$item->NOMOR_PENGIRIMAN).'"><i class="fa fa-plus"></i></a>
                                                 <button title="Ubah Status" class="btn btn-sm btn-green mt-2 ml-1 mdlChangeStatus" data-id="'.$item->NOMOR_PENGIRIMAN.'" type="button" data-toggle="modal" data-target="#mdlChangeStatus"><i class="fa fa-check"></i></button>
                                                 <a title="Print Nota Pengiriman" class="btn btn-sm btn-dark mt-2 ml-1" type="button" href=""><i class="fa fa-print"></i></a>
                                             </td>
