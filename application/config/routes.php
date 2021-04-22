@@ -49,9 +49,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller']    = 'Admin';
+$route['default_controller']    = 'HomeController';
 $route['404_override']          = '';
 $route['translate_uri_dashes']  = FALSE;
+
+// Home
+$route['lpaket']                = 'HomeController/vPaket';
+$route['lorder']                = 'HomeController/vOrder';
+
+// Auth
+$route['login']                 = 'AuthController/vLogin';
+$route['logging']               = 'AuthController/login';
+$route['logout']                = 'AuthController/logout';
 
 // KLIEN
 $route['klien']                 = 'KlienController/vKlien';
@@ -81,7 +90,7 @@ $route['pemesanan/edit']         = 'ProyekController/edit';
 $route['pemesanan/ajxGet']       = 'ProyekController/ajxGet';
 $route['pemesanan/delete']       = 'ProyekController/delete';
 
-// Inventaris Barang
+// Proyek Inventaris Barang
 $route['inventaris']              = 'InventarisController/vInventaris';
 $route['inventaris/store']        = 'InventarisController/store';
 $route['inventaris/edit']         = 'InventarisController/edit';
@@ -113,3 +122,13 @@ $route['notapembayaran/store']          = 'NotaPembayaranController/store';
 $route['notapembayaran/edit']           = 'NotaPembayaranController/edit';
 $route['notapembayaran/ajxGet']         = 'NotaPembayaranController/ajxGet';
 $route['notapembayaran/changeStatus']   = 'NotaPembayaranController/changeStatus';
+
+// Proyek Nota Pengiriman
+$route['notapengiriman']                = 'NotaPengirimanController/vPengiriman';
+$route['notapengiriman/store']          = 'NotaPengirimanController/store';
+$route['notapengiriman/edit']           = 'NotaPengirimanController/edit';
+$route['notapengiriman/ajxGet']         = 'NotaPengirimanController/ajxGet';
+$route['notapengiriman/ajxManageGet']   = 'NotaPengirimanController/ajxManageGet';
+$route['notapengiriman/changeStatus']   = 'NotaPengirimanController/changeStatus';
+$route['notapengiriman/manage/(:any)']  = 'NotaPengirimanController/vManage/$1';
+$route['notapengiriman/manage/(:any)/set']     = 'NotaPengirimanController/set/$1';
