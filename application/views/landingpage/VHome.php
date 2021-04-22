@@ -53,7 +53,7 @@
     <section class="page-section" id="tentang">
         <div class="container">
             <div class="row col-md-auto">
-                <img class="img-fluid h-25" src="<?= base_url(); ?>assets/home/img/about/about.jpg" alt="Responsive image" />
+                <img class="img-fluid h-25" src="<?= base_url(); ?>assets/home/img/about.jpg" alt="Responsive image" />
                 <div class="col text-left ml-4">
                     <h2 class="section-heading text-uppercase">Siapa Kami ?</h2>
                     <h3 class="section-subheading text-muted">Kami adalah penyedia jasa persewaaan peralatan dan dekorasi pesta yang didukung dengan tenaga kerja profesional serta ide-ide segar dan baru. Kami bertujuan memberikan pelayanan yang terbaik demi terwujudnya pesta impian Anda.</h3>

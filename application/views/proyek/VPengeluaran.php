@@ -31,7 +31,7 @@
                         </select>
                     </div>
                     <div class="col-md-3 ml-4">
-                        <label>Tanggal Masuk : </label>
+                        <label>Tanggal Keluar : </label>
                         <input name="" class="form-control" id="tanggalMasuk" type="text" placeholder="Masukkan Tanggal" />
                     </div>
                     <div class="col-md-2 mt-2">
