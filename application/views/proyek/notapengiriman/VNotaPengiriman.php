@@ -30,7 +30,7 @@
                             <option value="3">00000013/III/SKK/2021</option>
                         </select>
                     </div>
-                    <div class="col-md-2 ml-4">
+                    <div class="col-md-3 ml-4">
                         <label>Tanggal Kirim : </label>
                         <input name="" class="form-control" id="tanggalKirim" type="text" placeholder="Tanggal Kirim" />
                     </div>
@@ -42,11 +42,12 @@
                             <option>Nonaktif</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mt-2">
+                    
+                </div>
+                <div class="col-md-2 ml-3 mt-2">
                         <label></label>
                         <button type="submit" class="btn btn-primary btn-block">Tampilkan</button>
                     </div>
-                </div>
             </div>
             <div class="card-body">
                 <div class="datatable">
