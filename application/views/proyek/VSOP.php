@@ -69,18 +69,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>NK00000001</td>
-                                <td>2019081600000001</td>
-                                <td>Ilham</td>
-                                <td>Malang</td>
-                                <td>16 Sep 2019</td>
-                                <td>16 Sep 2019</td>
-                                <td>
-                                    <button title="Edit SOP" class="btn btn-sm btn-warning ml-1" type="button" data-toggle="modal" data-target="#editSOP"><i class="fa fa-edit"></i></button>
-                                    <button class="btn btn-sm btn-dark ml-1 mt-1" type="button" data-toggle="modal" data-target="#pdfModal"><i class="fa fa-print"></i></button>
-                                </td>
-                            </tr>
+                            <?php
+                                foreach($datatable as $items){
+                                    $date1=date_create($items->TGL_PENGIRIMAN);
+                                    $date2=date_create($items->TGLACARA_PEMESANAN);
+                                    
+                                    echo'
+                                        <tr>
+                                            <td>'.$items->NOMOR_PENGIRIMAN.'</td>
+                                            <td>'.$items->NOMOR_PEMESANAN.'</td>
+                                            <td>'.$items->NAMA_KLIEN.'</td>
+                                            <td>'.$items->ALAMAT_PEMESANAN.'</td>
+                                            <td>'.date_format($date1,"d M Y").'</td>
+                                            <td>'.date_format($date2,"d M Y").'</td>
+                                            <td>
+                                                <button title="Edit SOP" class="btn btn-sm btn-warning ml-1 editSOP" type="button" data-id="'.$items->NOMOR_PENGIRIMAN.'" data-toggle="modal" data-target="#editSOP"><i class="fa fa-edit"></i></button>
+                                                <a title="Print SOP" class="btn btn-sm btn-dark ml-1" type="button" href="'.site_url('welcome/print_sop').'"><i class="fa fa-print"></i></a>
+                                            </td>
+                                        </tr>
+                                    ';
+                                }
+                            ?>   
                         </tbody>
                     </table>
                 </div>
@@ -97,15 +106,19 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="">
+                            <form method="post" action="<?= site_url('sop/store') ?>" enctype="multipart/form-data">
                                 <div>
                                     <label>Pilih No Nota Pengiriman : </label>
                                     <br>
-                                    <select class="form-control select-modal-width" id="" name="">
+                                    <select class="form-control select-modal-width" name="NOMOR_PENGIRIMAN">
                                         <option>Pilih No Nota Pengiriman</option>
-                                        <option value="1">00000013/III/SKK/2021</option>
-                                        <option value="2">00000012/IX/SKK/2019</option>
-                                        <option value="3">00000013/III/SKK/2021</option>
+                                        <?php
+                                        foreach ($pengiriman as $item) {
+                                            echo '
+                                                <option value="' . $item->NOMOR_PENGIRIMAN . '">' . $item->NOMOR_PENGIRIMAN . '</option>
+                                            ';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <br>
@@ -136,7 +149,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
@@ -157,15 +169,19 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="post">
+                            <form action="<?= site_url('sop/edit') ?>" method="post" enctype="multipart/form-data">
                                 <div>
                                     <label>Pilih No Nota Pengiriman : </label>
                                     <br>
-                                    <select class="form-control select-modal-width" id="" name="">
+                                    <select class="form-control select-modal-width" id="nomorPengiriman_edit" name="NOMORTES">
                                         <option>Pilih No Nota Pengiriman</option>
-                                        <option value="1">00000013/III/SKK/2021</option>
-                                        <option value="2">00000012/IX/SKK/2019</option>
-                                        <option value="3">00000013/III/SKK/2021</option>
+                                        <?php
+                                        foreach ($pengiriman as $item) {
+                                            echo '
+                                                <option value="' . $item->NOMOR_PENGIRIMAN . '">' . $item->NOMOR_PENGIRIMAN . '</option>
+                                            ';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <br>
@@ -196,10 +212,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" id="" name="" class="form-control">
+                            <input type="hidden" id="nmrPengiriman_edit" name="NOMOR_PENGIRIMAN" class="form-control">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Batal</button>
                             <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Simpan</button>
                         </div>
@@ -240,6 +255,7 @@
             fixedColumns: false
         });
     });
+    
     $('#dataTableSOP tbody').on('click', '.editSOP', function() {
         const id = $(this).data('id');
         $.ajax({
