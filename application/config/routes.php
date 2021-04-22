@@ -132,3 +132,9 @@ $route['notapengiriman/ajxManageGet']   = 'NotaPengirimanController/ajxManageGet
 $route['notapengiriman/changeStatus']   = 'NotaPengirimanController/changeStatus';
 $route['notapengiriman/manage/(:any)']  = 'NotaPengirimanController/vManage/$1';
 $route['notapengiriman/manage/(:any)/set']     = 'NotaPengirimanController/set/$1';
+
+// Proyek SOP
+$route['sop']                = 'SOPController/vSOP';
+$route['sop/store']          = 'SOPController/store';
+$route['sop/edit']           = 'SOPController/edit';
+$route['sop/ajxGet']         = 'SOPController/ajxGet';
