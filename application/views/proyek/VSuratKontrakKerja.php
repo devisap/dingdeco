@@ -199,4 +199,9 @@
             }
         })
     });
+
+    $('#dataTableKontrakKerja tbody').on('click', '.pdfModal', function() {
+        const src = $(this).data("src")
+        $('#pdfModal_src').attr('src', src);
+    })
 </script>

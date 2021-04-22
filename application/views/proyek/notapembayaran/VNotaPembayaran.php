@@ -256,5 +256,10 @@
         const id = $(this).data('id');
         $('#pembayaran_changeStatus').val(id)
     });
+
+    $('#dataTableNotaPembayaran tbody').on('click', '.pdfModal', function() {
+        const src = $(this).data("src")
+        $('#pdfModal_src').attr('src', src);
+    })
     </script>
 </main>

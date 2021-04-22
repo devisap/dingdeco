@@ -43,7 +43,7 @@
             </div>
             <div class="card-body">
                 <div class="datatable">
-                    <table class="table table-bordered table-hover" id="dataTableLaporKeuangan" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-hover" id="dataTableAkhirAcara" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>No Pemesanan</th>
@@ -94,7 +94,7 @@
 </main>
 <script>
     $().ready(function() {
-        var table = $('#dataTableLaporKeuangan').DataTable({
+        var table = $('#dataTableAkhirAcara').DataTable({
             ordering: false,
             "order": [
                 [0, 'asc']
@@ -102,4 +102,9 @@
             fixedColumns: false
         });
     });
+
+    $('#dataTableAkhirAcara tbody').on('click', '.pdfModal', function() {
+        const src = $(this).data("src")
+        $('#pdfModal_src').attr('src', src);
+    })
 </script>

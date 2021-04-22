@@ -70,26 +70,26 @@
                         </thead>
                         <tbody>
                             <?php
-                                foreach($datatable as $items){
-                                    $date1=date_create($items->TGL_PENGIRIMAN);
-                                    $date2=date_create($items->TGLACARA_PEMESANAN);
-                                    
-                                    echo'
+                            foreach ($datatable as $items) {
+                                $date1 = date_create($items->TGL_PENGIRIMAN);
+                                $date2 = date_create($items->TGLACARA_PEMESANAN);
+
+                                echo '
                                         <tr>
-                                            <td>'.$items->NOMOR_PENGIRIMAN.'</td>
-                                            <td>'.$items->NOMOR_PEMESANAN.'</td>
-                                            <td>'.$items->NAMA_KLIEN.'</td>
-                                            <td>'.$items->ALAMAT_PEMESANAN.'</td>
-                                            <td>'.date_format($date1,"d M Y").'</td>
-                                            <td>'.date_format($date2,"d M Y").'</td>
+                                            <td>' . $items->NOMOR_PENGIRIMAN . '</td>
+                                            <td>' . $items->NOMOR_PEMESANAN . '</td>
+                                            <td>' . $items->NAMA_KLIEN . '</td>
+                                            <td>' . $items->ALAMAT_PEMESANAN . '</td>
+                                            <td>' . date_format($date1, "d M Y") . '</td>
+                                            <td>' . date_format($date2, "d M Y") . '</td>
                                             <td>
-                                                <button title="Edit SOP" class="btn btn-sm btn-warning ml-1 editSOP" type="button" data-id="'.$items->NOMOR_PENGIRIMAN.'" data-toggle="modal" data-target="#editSOP"><i class="fa fa-edit"></i></button>
-                                                <a title="Print SOP" class="btn btn-sm btn-dark ml-1" type="button" href="'.site_url('welcome/print_sop').'"><i class="fa fa-print"></i></a>
+                                                <button title="Edit SOP" class="btn btn-sm btn-warning ml-1 editSOP" type="button" data-id="' . $items->NOMOR_PENGIRIMAN . '" data-toggle="modal" data-target="#editSOP"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-dark ml-1 mt-1" type="button" data-toggle="modal" data-target="#pdfModal"><i class="fa fa-print"></i></button>
                                             </td>
                                         </tr>
                                     ';
-                                }
-                            ?>   
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -221,13 +221,13 @@
                         </form>
                     </div>
                 </div>
-            </div>       
-              <!-- Modal View PDF -->
-              <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModal" aria-hidden="true">
+            </div>
+            <!-- Modal View PDF -->
+            <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModal" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" >SOP</h5>
+                            <h5 class="modal-title">SOP</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -255,7 +255,7 @@
             fixedColumns: false
         });
     });
-    
+
     $('#dataTableSOP tbody').on('click', '.editSOP', function() {
         const id = $(this).data('id');
         $.ajax({
@@ -266,9 +266,9 @@
                 NOMOR_PENGIRIMAN: id
             },
             success: res => {
-                $('#nomorPengiriman_edit').val(res[0].NOMOR_PENGIRIMAN)     
-                $('#foto-preview-edit').attr('src', res[0].IMG1_SOP) 
-                $('#denah-preview-edit').attr('src', res[0].IMG2_SOP) 
+                $('#nomorPengiriman_edit').val(res[0].NOMOR_PENGIRIMAN)
+                $('#foto-preview-edit').attr('src', res[0].IMG1_SOP)
+                $('#denah-preview-edit').attr('src', res[0].IMG2_SOP)
                 $('#nmrPengiriman_edit').val(res[0].NOMOR_PENGIRIMAN)
             }
         })
@@ -303,6 +303,7 @@
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".label-foto").addClass("selected").html(fileName);
     });
+
     function previewLogo() {
         document.getElementById("denah-preview").style.display = "block";
         var oFReader = new FileReader();
@@ -314,7 +315,8 @@
     $(".denah").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".label-denah").addClass("selected").html(fileName);
-    }); 
+    });
+
     function previewLogoedit() {
         document.getElementById("denah-preview-edit").style.display = "block";
         var oFReader = new FileReader();
@@ -326,7 +328,8 @@
     $(".denah-edit").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".label-denah-edit").addClass("selected").html(fileName);
-    });  
+    });
+
     function previewFotoedit() {
         document.getElementById("foto-preview-edit").style.display = "block";
         var oFReader = new FileReader();
@@ -338,5 +341,9 @@
     $(".foto-edit").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".label-foto-edit").addClass("selected").html(fileName);
-    });  
+    });
+    $('#dataTableSOP tbody').on('click', '.pdfModal', function() {
+        const src = $(this).data("src")
+        $('#pdfModal_src').attr('src', src);
+    })
 </script>

@@ -384,4 +384,9 @@
         const id = $(this).data('id');
         $('#nomorPesanan_edit').val(id)
     });
+
+    $('#dataTableKlien tbody').on('click', '.pdfModal', function() {
+        const src = $(this).data("src")
+        $('#pdfModal_src').attr('src', src);
+    })
 </script>
