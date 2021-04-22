@@ -300,4 +300,9 @@
         const id = $(this).data('id')
         $('#btnChangeStatus_id').val(id)
     })
+
+    $('#dataTableNotaPengiriman tbody').on('click', '.pdfModal', function() {
+        const src = $(this).data("src")
+        $('#pdfModal_src').attr('src', src);
+    })
 </script>
