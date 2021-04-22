@@ -78,7 +78,7 @@
                                                 <button title="Edit Nota Pengiriman" class="btn btn-sm btn-warning ml-1 mdlEdit" data-id="'.$item->NOMOR_PENGIRIMAN.'" type="button" data-toggle="modal" data-target="#mdlEdit"><i class="fa fa-edit"></i></button>
                                                 <a title="Tambah Barang Pengiriman" class="btn btn-blue ml-1 btn-sm" type="button" href="'.site_url('notapengiriman/manage/'.$item->NOMOR_PENGIRIMAN).'"><i class="fa fa-plus"></i></a>
                                                 <button title="Ubah Status" class="btn btn-sm btn-green mt-2 ml-1 mdlChangeStatus" data-id="'.$item->NOMOR_PENGIRIMAN.'" type="button" data-toggle="modal" data-target="#mdlChangeStatus"><i class="fa fa-check"></i></button>
-                                                <a title="Print Nota Pengiriman" class="btn btn-sm btn-dark mt-2 ml-1" type="button" href=""><i class="fa fa-print"></i></a>
+                                                <button title="Print Nota Pengiriman" class="btn btn-sm btn-dark mt-2 ml-1" type="button" data-toggle="modal" data-target="#pdfModal"><i class="fa fa-print"></i></button>
                                             </td>
                                         </tr>
                                     ';
@@ -209,6 +209,26 @@
                                 <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i>Ubah Status</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Modal View PDF -->
+             <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" >Nota Pengiriman</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe id="pdfModal_src" src="<?= base_url('assets/pdf/nota_pengiriman.pdf'); ?>" frameborder="0" width="100%" height="470px"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Tutup</button>
+                        </div>
                     </div>
                 </div>
             </div>
