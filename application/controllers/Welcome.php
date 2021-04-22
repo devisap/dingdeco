@@ -204,7 +204,7 @@ class Welcome extends CI_Controller
         $data = array(
             'title' => 'Laporan Akhir Acara | SYMA Decoration'
         );
-        $this->template->view('laporan/VAkhiracara', $data);
+        $this->template->view('laporan/VAkhirAcara', $data);
     }
 
 }
