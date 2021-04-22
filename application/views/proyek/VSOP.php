@@ -84,7 +84,7 @@
                                             <td>'.date_format($date2,"d M Y").'</td>
                                             <td>
                                                 <button title="Edit SOP" class="btn btn-sm btn-warning ml-1 editSOP" type="button" data-id="'.$items->NOMOR_PENGIRIMAN.'" data-toggle="modal" data-target="#editSOP"><i class="fa fa-edit"></i></button>
-                                                <a title="Print SOP" class="btn btn-sm btn-dark ml-1" type="button" href="'.site_url('welcome/print_sop').'"><i class="fa fa-print"></i></a>
+                                                <button class="btn btn-sm btn-dark ml-1 mt-1" type="button" data-toggle="modal" data-target="#pdfModal"><i class="fa fa-print"></i></button>  
                                             </td>
                                         </tr>
                                     ';
@@ -223,7 +223,7 @@
                 </div>
             </div>       
               <!-- Modal View PDF -->
-              <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModal" aria-hidden="true">
+            <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModal" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
