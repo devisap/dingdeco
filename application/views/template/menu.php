@@ -35,7 +35,7 @@
                 <i class="fas fa-truck-moving ml-2 mr-2 fa-lg fa-fw"></i>
                 Nota Pengiriman
             </a>
-            <a class="nav-link" href="<?php echo site_url('welcome/sop'); ?>">
+            <a class="nav-link" href="<?php echo site_url('sop'); ?>">
                 <i class="fas fa-map-marked-alt ml-2 mr-2 fa-lg fa-fw"></i>
                 SOP
             </a>
