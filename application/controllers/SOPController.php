@@ -26,7 +26,9 @@ class SOPController extends CI_Controller
     }
 
     public function edit(){
-        $dataEdit               = $_POST;
+        $dataEdit              = $_POST;        
+        $dataEdit['IMG1_SOP'] = $this->upload_image('foto');
+        $dataEdit['IMG2_SOP'] = $this->upload_image('denah');
         $dataEdit['updated_at'] = date('Y-m-d H:i:s');
         $this->SOP->update($dataEdit);
 
@@ -59,7 +61,7 @@ class SOPController extends CI_Controller
  
                 $gambar=$gbr['file_name'];
 
-                return base_url($path.$gambar);
+                return base_url($path.$gambar);            
             }
                       
         }else{

@@ -12,7 +12,7 @@
             return $this->db->insert_id();
         }
         public function update($param){
-            return $this->db->where('NOMOR_PENGIRIMAN', $param['NOMOR_PENGIRIMAN'])->update('sop', ['NOMOR_PENGIRIMAN' => $param['NOMORTES']]);;
+            return $this->db->where('NOMOR_PENGIRIMAN', $param['NOMOR_PENGIRIMAN'])->update('sop', ['IMG1_SOP' => $param['IMG1_SOP'], 'IMG2_SOP' => $param['IMG2_SOP'], 'updated_at' => $param['updated_at'], 'NOMOR_PENGIRIMAN' => $param['NOMORTES']]);;
         }     
         public function delete($param){
             $this->db->where($param)->delete('sop');
