@@ -32,8 +32,7 @@ class Dashboard extends RestController
     {
         // $this->db->select('NAMA_KLIEN, TELP_KLIEN, ALAMAT_KLIEN, EMAIL_KLIEN','STATUS_KLIEN');
         $this->db->select('NAMA_KLIEN, TELP_KLIEN, ALAMAT_KLIEN, EMAIL_KLIEN');
-        $this->db->from('pemesanan p');
-        $this->db->join('klien k', 'k.ID_KLIEN = p.ID_KLIEN');
+        $this->db->from('klien');
         $query = $this->db->get();
         $klien = $query->result();
 
@@ -50,16 +49,16 @@ class Dashboard extends RestController
         $jmlbaru = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN = 0')->result();
         $jmlproses = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN in (2, 3, 4, 5, 6)')->result();
         $jmlselesai = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN = 7')->result();
-        
-        $jumlahpemesanan = [
-            "message" => "Sukses",
-            "jumlah pemesanan" =>count($jmlpemesanan),
-            "jumlah pemesanan baru" =>count($jmlbaru),
-            "jumlah pemesanan proses" =>count($jmlproses),
-            "jumlah pemesanan selesai" =>count($jmlselesai)
+
+        $response = [
+            'jumlah pemesanan' => '' . count($jmlpemesanan),
+            'jumlah pemesanan baru' => '' .count($jmlbaru),
+            'jumlah pemesanan proses' => '' .count($jmlproses),
+            'jumlah pemesanan selesai' => '' .count($jmlselesai)
         ];
      
-        $this->response($jumlahpemesanan, 200);
+        $this->response(['status' => true, "message" => "Sukses", 'data' => $response], 200);
+
     }
 
 }
