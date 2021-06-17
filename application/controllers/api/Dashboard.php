@@ -30,10 +30,9 @@ class Dashboard extends RestController
 
     public function daftarklien_get()
     {
-        // $this->db->select('NAMA_KLIEN, TELP_KLIEN, ALAMAT_KLIEN, TGLACARA_PEMESANAN','STATUS_KLIEN');
-        $this->db->select('NAMA_KLIEN, TELP_KLIEN, ALAMAT_KLIEN, TGLACARA_PEMESANAN');
-        $this->db->from('pemesanan p');
-        $this->db->join('klien k', 'k.ID_KLIEN = p.ID_KLIEN');
+        // $this->db->select('NAMA_KLIEN, TELP_KLIEN, ALAMAT_KLIEN, EMAIL_KLIEN','STATUS_KLIEN');
+        $this->db->select('NAMA_KLIEN, TELP_KLIEN, ALAMAT_KLIEN, EMAIL_KLIEN');
+        $this->db->from('klien');
         $query = $this->db->get();
         $klien = $query->result();
 
@@ -44,67 +43,22 @@ class Dashboard extends RestController
         }
     }
 
-    public function jumlahpemesanan_get()
+    public function jumlah_get()
     {
-        $this->db->select('NOMOR_PEMESANAN');
-        $this->db->from('pemesanan');
-        $query = $this->db->get();
-        $hasil = $query->result();
-     
-        $jumlahpemesanan = [
-            "message" => "Sukses",
-            "jumlah pemesanan" =>count($hasil)
+        $jmlpemesanan = $this->db->get_where('PEMESANAN',['NOMOR_PEMESANAN'])->result();
+        $jmlbaru = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN = 0')->result();
+        $jmlproses = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN in (2, 3, 4, 5, 6)')->result();
+        $jmlselesai = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN = 7')->result();
+
+        $response = [
+            'jumlah pemesanan' => '' . count($jmlpemesanan),
+            'jumlah pemesanan baru' => '' .count($jmlbaru),
+            'jumlah pemesanan proses' => '' .count($jmlproses),
+            'jumlah pemesanan selesai' => '' .count($jmlselesai)
         ];
      
-        $this->response($jumlahpemesanan, 200);
+        $this->response(['status' => true, "message" => "Sukses", 'data' => $response], 200);
+
     }
 
-    public function jumlahpemesananbaru_get()
-    {
-        $this->db->select('STATUS_PEMESANAN');
-        $this->db->from('pemesanan');
-        $this->db->where('STATUS_PEMESANAN', 0);
-        $query = $this->db->get();
-        $hasil = $query->result();
-     
-        $jmlpemesananbaru = [
-            "message" => "Sukses",
-            "jumlah pemesanan baru" =>count($hasil)
-        ];
-     
-        $this->response($jmlpemesananbaru, 200);
-    }
-
-    public function jumlahpemesananproses_get()
-    {
-
-        $this->db->select('STATUS_PEMESANAN');
-        $this->db->from('pemesanan');
-        $this->db->where('STATUS_PEMESANAN in (2, 3, 4, 5, 6)');
-        $query = $this->db->get();
-        $hasil = $query->result();
-     
-        $jmlpemesananproses = [
-            "message" => "Sukses",
-            "jumlah pemesanan di proses" =>count($hasil)
-        ];
-     
-        $this->response($jmlpemesananproses, 200);
-    }
-
-    public function jumlahpemesananselesai_get()
-    {
-        $this->db->select('STATUS_PEMESANAN');
-        $this->db->from('pemesanan');
-        $this->db->where('STATUS_PEMESANAN', 7);
-        $query = $this->db->get();
-        $hasil = $query->result();
-     
-        $jmlpemesananselesai = [
-            "message" => "Sukses",
-            "jumlah pemesanan selesai" =>count($hasil)
-        ];
-     
-        $this->response($jmlpemesananselesai, 200);
-    }
 }
