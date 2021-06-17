@@ -43,7 +43,7 @@ class Dashboard extends RestController
         }
     }
 
-    public function jumlahpemesanan_get()
+    public function jumlah_get()
     {
         $jmlpemesanan = $this->db->get_where('PEMESANAN',['NOMOR_PEMESANAN'])->result();
         $jmlbaru = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN = 0')->result();
