@@ -45,10 +45,10 @@ class Dashboard extends RestController
 
     public function jumlah_get()
     {
-        $jmlpemesanan = $this->db->get_where('PEMESANAN',['NOMOR_PEMESANAN'])->result();
-        $jmlbaru = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN = 0')->result();
-        $jmlproses = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN in (2, 3, 4, 5, 6)')->result();
-        $jmlselesai = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN = 7')->result();
+        $jmlpemesanan = $this->db->get_where('pemesanan',['NOMOR_PEMESANAN'])->result();
+        $jmlbaru = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN = 0')->result();
+        $jmlproses = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN in (2, 3, 4, 5, 6)')->result();
+        $jmlselesai = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN = 7')->result();
 
         $response = [
             'jumlah pemesanan' => '' . count($jmlpemesanan),
