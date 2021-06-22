@@ -45,16 +45,16 @@ class Dashboard extends RestController
 
     public function jumlah_get()
     {
-        $jmlpemesanan = $this->db->get_where('PEMESANAN',['NOMOR_PEMESANAN'])->result();
-        $jmlbaru = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN = 0')->result();
-        $jmlproses = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN in (2, 3, 4, 5, 6)')->result();
-        $jmlselesai = $this->db->get_where('PEMESANAN', 'STATUS_PEMESANAN = 7')->result();
+        $jmlpemesanan = $this->db->get_where('pemesanan',['NOMOR_PEMESANAN'])->result();
+        $jmlbaru = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN = 0')->result();
+        $jmlproses = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN in (2, 3, 4, 5, 6)')->result();
+        $jmlselesai = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN = 7')->result();
 
         $response = [
             'jumlah_pemesanan' => '' . count($jmlpemesanan),
-            'jumlah_pemesanan baru' => '' .count($jmlbaru),
-            'jumlah_pemesanan proses' => '' .count($jmlproses),
-            'jumlah_pemesanan selesai' => '' .count($jmlselesai)
+            'jumlah_pemesanan_baru' => '' .count($jmlbaru),
+            'jumlah_pemesanan_proses' => '' .count($jmlproses),
+            'jumlah_pemesanan_selesai' => '' .count($jmlselesai)
         ];
      
         $this->response(['status' => true, "message" => "Sukses", 'data' => $response], 200);
