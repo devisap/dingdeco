@@ -51,10 +51,10 @@ class Dashboard extends RestController
         $jmlselesai = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN = 7')->result();
 
         $response = [
-            'jumlah pemesanan' => '' . count($jmlpemesanan),
-            'jumlah pemesanan baru' => '' .count($jmlbaru),
-            'jumlah pemesanan proses' => '' .count($jmlproses),
-            'jumlah pemesanan selesai' => '' .count($jmlselesai)
+            'jumlah_pemesanan' => '' . count($jmlpemesanan),
+            'jumlah_pemesanan_baru' => '' .count($jmlbaru),
+            'jumlah_pemesanan_proses' => '' .count($jmlproses),
+            'jumlah_pemesanan_selesai' => '' .count($jmlselesai)
         ];
      
         $this->response(['status' => true, "message" => "Sukses", 'data' => $response], 200);
