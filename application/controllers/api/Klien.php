@@ -42,6 +42,15 @@ class Klien extends RestController {
             $this->response(['status' => false, 'message' => 'Parameter tidak cocok'], 200);
         }
     }
+
+    public function detail_get($idKlien){
+        $klien = $this->db->get_where('klien', ['ID_KLIEN' => $idKlien])->row();
+        if($klien != null){
+            $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $klien], 200);
+        }else{
+            $this->response(['status' => false, 'message' => 'Data tidak ditemukan', 'data' => $klien], 404);
+        }
+    }
     
     public function edit_put(){
         $param = $this->put();
