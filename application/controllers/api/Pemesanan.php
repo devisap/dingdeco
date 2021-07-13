@@ -64,7 +64,8 @@ class Pemesanan extends RestController
             $idPengguna = $this->db->get_where('pengguna', ['ID_PENGGUNA' => $param['idPengguna']])->row();
             $idPaket = $this->db->get_where('paket', ['ID_PAKET' => $param['idPaket']])->row();
 
-            if ($idKlien  && $idPengguna && $idPaket != null) {
+            if ($idKlien != null  && $idPengguna != null && $idPaket != null) {
+                $storePemesanan['NOMOR_PEMESANAN']          = date('YmdHis');
                 $storePemesanan['ID_KLIEN']                 = $param['idKlien'];
                 $storePemesanan['ID_PENGGUNA']              = $param['idPengguna'];
                 $storePemesanan['ID_PAKET']                 = $param['idPaket'];
