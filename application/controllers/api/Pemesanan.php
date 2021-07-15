@@ -43,7 +43,7 @@ class Pemesanan extends RestController
 
     public function index_get()
     {
-        $this->db->select('p.NOMOR_PEMESANAN, p2.NAMA_PENGGUNA, k.NAMA_KLIEN, p.TELP_KLIEN, p.ALAMAT_PEMESANAN, p.TGLACARA_PEMESANAN, p.STATUS_PEMESANAN')->order_by('p.created_at', 'desc');
+        $this->db->select('p.NOMOR_PEMESANAN, p2.NAMA_PENGGUNA, k.NAMA_KLIEN, k.TELP_KLIEN, p.ALAMAT_PEMESANAN, p.TGLACARA_PEMESANAN, p.STATUS_PEMESANAN')->order_by('p.created_at', 'desc');
         $this->db->from('pemesanan p');
         $this->db->join('pengguna p2', 'p2.ID_PENGGUNA = p.ID_PENGGUNA');
         $this->db->join('klien k', 'k.ID_KLIEN = p.ID_KLIEN');
