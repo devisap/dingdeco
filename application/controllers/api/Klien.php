@@ -22,6 +22,39 @@ class Klien extends RestController {
         }        
     }
 
+    public function filter_get($nama){
+        $param = $this->get();  
+        
+        if(empty($param['status'])){
+            $query = "SELECT * FROM klien WHERE NAMA_KLIEN LIKE '%$nama%'";
+            $clients = $this->db->query($query)->result();
+
+            if($clients != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $clients], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data klien tidak ditemukan'], 200);
+            };
+        }else if($param['status'] == 1){
+            $query = "SELECT * FROM klien WHERE NAMA_KLIEN LIKE '%$nama%' AND deleted_at IS NULL";
+            $clients = $this->db->query($query)->result();
+
+            if($clients != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $clients], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data klien tidak ditemukan'], 200);
+            };
+        }else if($param['status'] == 2){
+            $query = "SELECT * FROM klien WHERE NAMA_KLIEN LIKE '%$nama%' AND deleted_at IS NOT NULL";
+            $clients = $this->db->query($query)->result();
+
+            if($clients != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $clients], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data klien tidak ditemukan'], 200);
+            };
+        }                 
+    }
+
     public function tambah_post(){
         $param = $this->post();        
         if(!empty('nama') && !empty('telepon') && !empty('email') && !empty('alamat')){
