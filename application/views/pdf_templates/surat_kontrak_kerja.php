@@ -30,7 +30,7 @@
 					<td width="50%" style="text-align:right; font-size:19px;">Surat Kontrak Kerja</td>
 				</tr>
 				<tr>
-					<td style="text-align:right;font-size:12px;"><b>No. Surat : 00000001/VIII/SKK/2019</b></td>
+					<td style="text-align:right;font-size:12px;"><b>No. Surat : <?= $skk ?>/VIII/SKK/2021</b></td>
 				</tr>
 			</table>
 		</div>
@@ -40,47 +40,48 @@
 				<tr>
 					<td width="13%">Nama</td>
 					<td width="1.5%">:</td>
-					<td width="40%">Geeree</td>
+					<td width="40%"><?= $pemesanan[0]->NAMA_KLIEN ?></td>
 
 					<td width="13%">Tgl Acara</td>
 					<td width="1.5%">:</td>
-					<td>25 Mei 2025 15:00</td>
+					<td><?= $pemesanan[0]->TGLACARA_PEMESANAN ?></td>
 				</tr>
 				<tr>
 					<td>No. Telp</td>
 					<td>:</td>
-					<td>0895399176918</td>
+					<td><?= $pemesanan[0]->TELP_KLIEN ?></td>
 
 					<td>Uang Muka</td>
 					<td>:</td>
-					<td>Rp800.000</td>
+					<td>Rp <?= number_format($pemesanan[0]->UANGMUKA_PEMESANAN,0,',','.') ?></td>
 				</tr>
 				<tr>
 					<td>Alamat</td>
 					<td>:</td>
-					<td>Jalan Raya Singosari 12C 458</td>
+					<td><?= $pemesanan[0]->ALAMAT_PEMESANAN ?></td>
 
 					<td>Biaya</td>
 					<td>:</td>
-					<td>Rp14.000.000</td>
+					<td>Rp <?= number_format($pemesanan[0]->BIAYA_PEMESANAN,0,',','.')  ?></td>
 				</tr>
 				<tr>
 					<td>Paket</td>
 					<td>:</td>
-					<td>Paket A</td>
+					<td><?= $pemesanan[0]->NAMA_PAKET ?></td>
 
 					<td>Sisa</td>
 					<td>:</td>
-					<td>Rp13.200.000</td>
+					<?php $sisa = $pemesanan[0]->BIAYA_PEMESANAN - $pemesanan[0]->UANGMUKA_PEMESANAN ?>
+					<td>Rp <?= number_format($sisa,0,',','.')  ?></td>
 				</tr>
 			</table>
 		</div>
 		<br><br>
-		<div><b>Sisa Pembayaran harus dibayar paling lambat dua minggu sebelum acara, yaitu tanggal : 06 Mei 2025</b></div>
+		<div><b>Sisa Pembayaran harus dibayar paling lambat dua minggu sebelum acara</b></div>
 		<br><br><br>
 		<div><b>Deskripsi</b></div>
 		<br>
-		<div>Deskripsi nih dek</div>
+		<div><?= $pemesanan[0]->DESKRIPSI_PEMESANAN ?></div>
 			<br>
 			<br>
 			<br>
@@ -100,7 +101,7 @@
 				<tr>
 					<td width="25%">&nbsp;</td>
 					<td width="50%">&nbsp;</td>
-					<td width="25%" style="text-align:center;"><b>Malang, 05 Mei 2025</b></td>
+					<td width="25%" style="text-align:center;"><b>Malang, <?= date('d M Y') ?></b></td>
 				</tr>
 				<tr>
 					<td style="text-align:center;">Pemesan</td>
@@ -123,9 +124,9 @@
 					<td>&nbsp;</td>
 				</tr>
 				<tr>
-					<td style="text-align:center;">Geeree</td>
+					<td style="text-align:center;"><?= $pemesanan[0]->NAMA_KLIEN ?></td>
 					<td>&nbsp;</td>
-					<td style="text-align:center;">Hilman Thonthowi</td>
+					<td style="text-align:center;"><?= $pemesanan[0]->NAMA_PENGGUNA ?></td>
 				</tr>
 			</table>
 		</div>

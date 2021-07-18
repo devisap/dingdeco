@@ -76,6 +76,9 @@ class Pemesanan extends RestController
                 $storePemesanan['ALAMAT_PEMESANAN']         = $param['alamat'];
                 $storePemesanan['TGLACARA_PEMESANAN']       = $param['tanggal'];
                 $this->db->insert('pemesanan', $storePemesanan);
+
+                $resLinkGenerated = $this->ContentPdf->generate(['idPemesanan' => $storePemesanan['NOMOR_PEMESANAN'], 'idKlien' => $storePemesanan['ID_KLIEN'], 'idPaket' => $storePemesanan['ID_PAKET'], 'orientation' => 'portrait']);
+                $this->db->where('NOMOR_PEMESANAN', $storePemesanan['NOMOR_PEMESANAN'])->update('pemesanan', ['PATH_PEMESANAN' => base_url($resLinkGenerated)]);
                 
                 $this->response(['status' => true, 'message' => 'Data berhasil ditambahkan'], 200);
             } else {
@@ -92,6 +95,15 @@ class Pemesanan extends RestController
             $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pemesanan], 200);
         }else{
             $this->response(['status' => false, 'message' => 'Data tidak ditemukan', 'data' => $pemesanan], 404);
+        }
+    }
+
+    public function path_get($noPemesanan){
+        $path['link'] = $this->db->get_where('pemesanan', ['NOMOR_PEMESANAN' => $noPemesanan])->row()->PATH_PEMESANAN;
+        if($path['link'] != null){
+            $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $path], 200);
+        }else{
+            $this->response(['status' => false, 'message' => 'Data tidak ditemukan'], 404);
         }
     }
     
