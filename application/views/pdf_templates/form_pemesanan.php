@@ -35,7 +35,7 @@
 					<td width="50%" style="text-align:right; font-size:19px;">Form Pemesanan</td>
 				</tr>
 				<tr>
-					<td style="text-align:right;font-size:12px;"><b>2019081600000001</b></td>
+					<td style="text-align:right;font-size:12px;"><b><?= $pemesanan[0]->NOMOR_PEMESANAN ?></b></td>
 				</tr>
 			</table>
 		</div>
@@ -45,43 +45,43 @@
 				<tr>
 					<td width="17%">Nama</td>
 					<td width="3%">:</td>
-					<td>Geeree</td>
+					<td><?= $klien[0]->NAMA_KLIEN ?></td>
 				</tr>
 				<tr>
 					<td>No. Telp</td>
 					<td>:</td>
-					<td>0895399176918</td>
+					<td><?= $klien[0]->TELP_KLIEN ?></td>
 				</tr>
 				<tr>
 					<td>Alamat</td>
 					<td>:</td>
-					<td>Jalan Raya Singosari 12C 458</td>
+					<td><?= $klien[0]->ALAMAT_KLIEN ?></td>
 				</tr>
 				<tr>
 					<td>Paket</td>
 					<td>:</td>
-					<td>Paket A</td>
+					<td><?= $paket[0]->NAMA_PAKET ?></td>
 				</tr>
 				<tr>
 					<td>Tgl Acara</td>
 					<td>:</td>
-					<td>21 Mei 2025 15:00</td>
+					<td><?= $pemesanan[0]->TGLACARA_PEMESANAN ?></td>
 				</tr>
 				<tr>
 					<td>Deskripsi</td>
 					<td>:</td>
-					<td>Deskripsi nih dek</td>
+					<td><?= $pemesanan[0]->DESKRIPSI_PEMESANAN ?></td>
 				</tr>
 			</table>
 		</div>
 		<br><br><br>
-		<div class="ttd-div"><b>Malang, 16 Mei 2025</b></div>
+		<div class="ttd-div"><b>Malang, <?= date('d M Y') ?></b></div>
 		<div class="ttd-div">Pemesan</div>
 			<br>
 			<br>
 			<br>
 			<br>
-		<div class="ttd-div">Geeree</div>
+		<div class="ttd-div"><?= $klien[0]->NAMA_KLIEN ?></div>
 		<br><br><br>
 		<div style="font-size:12px"><b>TERIMA KASIH TELAH MEMPERCAYAI KAMI.</b></div>
 		<div style="font-size:12px; margin-top:10px;">Jangan lupa untuk follow Instagram SYMA Decoration @symadeco.</div>

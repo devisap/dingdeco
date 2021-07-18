@@ -43,10 +43,24 @@ class Skk extends RestController {
             $storeSkk['NOMOR_SKK']       = date('Ymds');
             $storeSkk['NOMOR_PEMESANAN'] = $param['noPesanan'];
 
+            $resLinkGenerated = $this->ContentPdf->generateSkk(['noSkk' => $storeSkk['NOMOR_SKK'], 'noPesanan' => $storeSkk['NOMOR_PEMESANAN'], 'orientation' => 'portrait']);
+            
+            $storeSkk['PATH_SKK'] = base_url($resLinkGenerated);            
             $this->db->insert('skk', $storeSkk);
+            
+            
             $this->response(['status' => true, 'message' => 'Data berhasil ditambahkan'], 200);            
         }else{
             $this->response(['status' => false, 'message' => 'Parameter tidak cocok'], 200);
+        }
+    }
+
+    public function path_get($noSkk){
+        $path['link'] = $this->db->get_where('skk', ['NOMOR_SKK' => $noSkk])->row()->PATH_SKK;
+        if($path['link'] != null){
+            $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $path], 200);
+        }else{
+            $this->response(['status' => false, 'message' => 'Data tidak ditemukan'], 404);
         }
     }
     
