@@ -57,8 +57,8 @@ class Dashboard extends RestController
             'jumlah_pemesanan_baru' => '' .count($jmlbaru),
             'jumlah_pemesanan_proses' => '' .count($jmlproses),
             'jumlah_pemesanan_selesai' => '' .count($jmlselesai),
-            'jumlah_pemasukan' => $jmlPemasukan->JML_PEMASUKAN,
-            'jumlah_pengeluaran' => $jmlPengeluaran->JML_PENGELUARAN
+            'jumlah_pemasukan' => $jmlPemasukan,
+            'jumlah_pengeluaran' => $jmlPengeluaran
         ];
      
         $this->response(['status' => true, "message" => "Sukses", 'data' => $response], 200);
