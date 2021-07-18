@@ -102,4 +102,12 @@ class Klien extends RestController {
             $this->response(['status' => false, 'message' => 'Parameter tidak cocok'], 200);
         }
     }
+    public function changeStatus_put(){
+        $param = $this->put();
+        if($param['status'] == 1){
+            $this->db->where('ID_KLIEN', $param['idKlien'])->update('klien', ['deleted_at' => null]);
+        }else if($param['status'] == 2){
+            $this->db->where('ID_KLIEN', $param['idKlien'])->update('klien', ['deleted_at' => date('Y-m-d H:i:s')]);
+        }
+    }
 }
