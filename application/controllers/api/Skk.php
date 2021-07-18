@@ -40,7 +40,7 @@ class Skk extends RestController {
     public function tambah_post(){
         $param = $this->post();        
         if(!empty('noPesanan')){                            
-            $storeSkk['NOMOR_SKK']       = date('Ymds');
+            $storeSkk['NOMOR_SKK']       = 'SKK_'.date('Ymds');
             $storeSkk['NOMOR_PEMESANAN'] = $param['noPesanan'];
 
             $resLinkGenerated = $this->ContentPdf->generateSkk(['noSkk' => $storeSkk['NOMOR_SKK'], 'noPesanan' => $storeSkk['NOMOR_PEMESANAN'], 'orientation' => 'portrait']);
