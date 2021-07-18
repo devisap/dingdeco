@@ -25,7 +25,7 @@ class Klien extends RestController {
     public function filter_get(){
         $param = $this->get();  
         
-        if(empty($param['status'])){
+        if($param['status'] == 0){
             $query = "SELECT * FROM klien WHERE NAMA_KLIEN LIKE '%".$param['nama']."%'";
             $clients = $this->db->query($query)->result();
 
