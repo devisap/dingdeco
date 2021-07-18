@@ -49,16 +49,16 @@ class Dashboard extends RestController
         $jmlbaru = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN = 0')->result();
         $jmlproses = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN in (2, 3, 4, 5, 6)')->result();
         $jmlselesai = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN = 7')->result();
-        $jmlPemasukan = $this->db->select('SUM(JML_PEMASUKAN) as JML_PEMASUKAN')->get('pemasukan')->result()->JML_PEMASUKAN;
-        $jmlPengeluaran   = $this->db->select('SUM(JML_PENGELUARAN) as JML_PENGELUARAN')->get('pengeluaran')->result()->JML_PENGELUARAN;
+        $jmlPemasukan = $this->db->select('SUM(JML_PEMASUKAN) as JML_PEMASUKAN')->get('pemasukan')->result();
+        $jmlPengeluaran   = $this->db->select('SUM(JML_PENGELUARAN) as JML_PENGELUARAN')->get('pengeluaran')->result();
 
         $response = [
             'jumlah_pemesanan' => '' . count($jmlpemesanan),
             'jumlah_pemesanan_baru' => '' .count($jmlbaru),
             'jumlah_pemesanan_proses' => '' .count($jmlproses),
             'jumlah_pemesanan_selesai' => '' .count($jmlselesai),
-            'jumlah_pemasukan' => $jmlPemasukan,
-            'jumlah_pengeluaran' => $jmlPengeluaran
+            'jumlah_pemasukan' => $jmlPemasukan->JML_PEMASUKAN,
+            'jumlah_pengeluaran' => $jmlPengeluaran->JML_PENGELUARAN
         ];
      
         $this->response(['status' => true, "message" => "Sukses", 'data' => $response], 200);
