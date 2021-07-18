@@ -58,7 +58,17 @@ class Dashboard extends RestController
         ];
      
         $this->response(['status' => true, "message" => "Sukses", 'data' => $response], 200);
+        
+    }
+    public function keuangan_get(){
+        $jmlPemasukan = $this->db->select('SUM(JML_PEMASUKAN) as JML_PEMASUKAN')->get('pemasukan')->result();
+        $jmlPengeluaran   = $this->db->select('SUM(JML_PENGELUARAN) as JML_PENGELUARAN')->get('pengeluaran')->result();
 
+        $dataObj = new stdClass();
+        $dataObj->jmlPemasukan = $jmlPemasukan;
+        $dataObj->jmlPengeluaran = $jmlPengeluaran;
+        
+        $this->response(['status' => true, "message" => "Sukses", 'data' => $dataObj], 200);
     }
 
 }
