@@ -22,11 +22,11 @@ class Klien extends RestController {
         }        
     }
 
-    public function filter_get($nama){
+    public function filter_get(){
         $param = $this->get();  
         
         if(empty($param['status'])){
-            $query = "SELECT * FROM klien WHERE NAMA_KLIEN LIKE '%$nama%'";
+            $query = "SELECT * FROM klien WHERE NAMA_KLIEN LIKE '%".$param['nama']."%'";
             $clients = $this->db->query($query)->result();
 
             if($clients != null){
@@ -35,7 +35,7 @@ class Klien extends RestController {
                 $this->response(['status' => false, 'message' => 'Data klien tidak ditemukan'], 200);
             };
         }else if($param['status'] == 1){
-            $query = "SELECT * FROM klien WHERE NAMA_KLIEN LIKE '%$nama%' AND deleted_at IS NULL";
+            $query = "SELECT * FROM klien WHERE NAMA_KLIEN LIKE '%".$param['nama']."%' AND deleted_at IS NULL";
             $clients = $this->db->query($query)->result();
 
             if($clients != null){
@@ -44,7 +44,7 @@ class Klien extends RestController {
                 $this->response(['status' => false, 'message' => 'Data klien tidak ditemukan'], 200);
             };
         }else if($param['status'] == 2){
-            $query = "SELECT * FROM klien WHERE NAMA_KLIEN LIKE '%$nama%' AND deleted_at IS NOT NULL";
+            $query = "SELECT * FROM klien WHERE NAMA_KLIEN LIKE '%".$param['nama']."%' AND deleted_at IS NOT NULL";
             $clients = $this->db->query($query)->result();
 
             if($clients != null){
