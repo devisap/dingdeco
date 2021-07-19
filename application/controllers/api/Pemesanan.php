@@ -240,4 +240,10 @@ class Pemesanan extends RestController
             $this->response(['status' => false, 'message' => 'Parameter tidak cocok'], 200);
         }
     }
+
+    public function changeStatus(){
+        $param = $this->post;
+        $this->db->where('NOMOR_PEMESANAN', $param['noPesan'])->update('pemesanan', ['STATUS_PEMESANAN' => $param['status']]);
+        $this->response(['status' => true, 'message' => 'Data berhasil diubah'], 200);
+    }
 }
