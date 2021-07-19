@@ -27,14 +27,8 @@ class Skk extends RestController {
     }
 
     public function noPemesanan_get(){
-        $sql = "SELECT NOMOR_PEMESANAN FROM pemesanan WHERE NOMOR_PEMESANAN NOT IN(SELECT NOMOR_PEMESANAN FROM skk)";
-        $noPemesanan = $this->db->query($sql)->result();     
-
-        if($noPemesanan != null){
-            $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $noPemesanan], 200);
-        }else{
-            $this->response(['status' => false, 'message' => 'Tidak ada pemesanan tersedia'], 200);
-        }        
+        $pemesanans = $this->db->select('NOMOR_PEMESANAN')->order_by('NOMOR_PEMESANAN', 'asc')->get('pemesanan')->result();
+        $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pemesanans], 200);
     }
 
     public function filter_get(){
