@@ -106,6 +106,93 @@ class Pemesanan extends RestController
             $this->response(['status' => false, 'message' => 'Data tidak ditemukan'], 404);
         }
     }
+
+    public function filter_get(){
+        $param = $this->get();  
+        //0 = show all, 1 = baru, 2 = cek lokasi, 3 = booking, dst
+        if($param['status'] == 0){
+            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%'";
+            $pesanan = $this->db->query($query)->result();
+
+            if($pesanan != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pesanan], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
+            };
+        }else if($param['status'] == 1){
+            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 0";
+            $pesanan = $this->db->query($query)->result();
+
+            if($pesanan != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pesanan], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
+            };
+        }else if($param['status'] == 2){
+            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 1";
+            $pesanan = $this->db->query($query)->result();
+
+            if($pesanan != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pesanan], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
+            };
+        }else if($param['status'] == 3){
+            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 2";
+            $pesanan = $this->db->query($query)->result();
+
+            if($pesanan != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pesanan], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
+            };
+        }else if($param['status'] == 4){
+            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 3";
+            $pesanan = $this->db->query($query)->result();
+
+            if($pesanan != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pesanan], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
+            };
+        }else if($param['status'] == 5){
+            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 4";
+            $pesanan = $this->db->query($query)->result();
+
+            if($pesanan != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pesanan], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
+            };
+        }else if($param['status'] == 6){
+            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 5";
+            $pesanan = $this->db->query($query)->result();
+
+            if($pesanan != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pesanan], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
+            };
+        }else if($param['status'] == 7){
+            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 6";
+            $pesanan = $this->db->query($query)->result();
+
+            if($pesanan != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pesanan], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
+            };
+        }else if($param['status'] == 8){
+            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 7";
+            $pesanan = $this->db->query($query)->result();
+
+            if($pesanan != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pesanan], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
+            };
+        }                
+    }
     
     public function edit_put(){
         $param = $this->put();
