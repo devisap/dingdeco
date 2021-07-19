@@ -25,13 +25,13 @@ class User extends RestController
                 if ($resLogin != null) {
                     $this->response(['status' => true, 'message' => 'Data berhasil ditemukan' , 'data' => $resLogin[0]], 200);
                 }else{
-                    $this->response(['status' => false, 'message' => 'Username atau password salah' ], 404);
+                    $this->response(['status' => false, 'message' => 'Username atau password salah' ], 200);
                 }
             } else {
-                $this->response(['status' => false, 'message' => 'Data tidak ditemukan'], 404);
+                $this->response(['status' => false, 'message' => 'Data tidak ditemukan'], 200);
             }
         } else {
-            $this->response(['status' => false, 'message' => 'Parameter tidak cocok'], 404);
+            $this->response(['status' => false, 'message' => 'Parameter tidak cocok'], 200);
         }
     }
 }
