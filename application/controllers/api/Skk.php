@@ -37,6 +37,19 @@ class Skk extends RestController {
         }        
     }
 
+    public function filter_get(){
+        $param = $this->get();  
+        
+        $query = "SELECT * FROM skk WHERE NOMOR_SKK LIKE '%".$param['noSkk']."%'";
+        $skk = $this->db->query($query)->result();
+
+        if($skk != null){
+            $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $skk], 200);
+        }else{
+            $this->response(['status' => false, 'message' => 'Data tidak ditemukan'], 200);
+        }                    
+    }
+
     public function tambah_post(){
         $param = $this->post();        
         if(!empty('noPesanan')){                            

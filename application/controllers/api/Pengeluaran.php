@@ -48,6 +48,30 @@ class Pengeluaran extends RestController{
         }
     }
 
+    public function filter_get(){
+        $param = $this->get();  
+        
+        if(!empty($param['tglAwal']) && !empty($param['tglAkhir'])){
+            $query = "SELECT * FROM pengeluaran WHERE NOMOR_PENGELUARAN LIKE '%".$param['noPengeluaran']."%' AND TGLMASUK_PENGELUARAN BETWEEN '".$param['tglAwal']."' AND '".$param['tglAkhir']."'";
+            $pengeluaran = $this->db->query($query)->result();
+
+            if($pengeluaran != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pengeluaran], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data tidak ditemukan'], 200);
+            }
+        }else{
+            $query = "SELECT * FROM pengeluaran WHERE NOMOR_PENGELUARAN LIKE '%".$param['noPengeluaran']."%'";
+            $pengeluaran = $this->db->query($query)->result();
+
+            if($pengeluaran != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pengeluaran], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data tidak ditemukan'], 200);
+            }  
+        }                          
+    }
+
     public function edit_put(){
         $param = $this->put();
         if(!empty($param['noPengeluaran']) && !empty($param['noPemesanan']) && !empty($param['tgl']) && !empty($param['jml']) && !empty($param['ket'])){

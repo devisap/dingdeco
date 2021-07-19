@@ -48,6 +48,30 @@ class Pemasukan extends RestController{
         }
     }
 
+    public function filter_get(){
+        $param = $this->get();  
+        
+        if(!empty($param['tglAwal']) && !empty($param['tglAkhir'])){
+            $query = "SELECT * FROM pemasukan WHERE NOMOR_PEMASUKAN LIKE '%".$param['noPemasukan']."%' AND TGLMASUK_PEMASUKAN BETWEEN '".$param['tglAwal']."' AND '".$param['tglAkhir']."'";
+            $pemasukan = $this->db->query($query)->result();
+
+            if($pemasukan != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pemasukan], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data tidak ditemukan'], 200);
+            }
+        }else{
+            $query = "SELECT * FROM pemasukan WHERE NOMOR_PEMASUKAN LIKE '%".$param['noPemasukan']."%'";
+            $pemasukan = $this->db->query($query)->result();
+
+            if($pemasukan != null){
+                $this->response(['status' => true, 'message' => 'Data berhasil ditemukan', 'data' => $pemasukan], 200);
+            }else{
+                $this->response(['status' => false, 'message' => 'Data tidak ditemukan'], 200);
+            }  
+        }                          
+    }
+
     public function edit_put(){
         $param = $this->put();
         if(!empty($param['noPemasukan']) && !empty($param['noPemesanan']) && !empty($param['tgl']) && !empty($param['jml']) && !empty($param['ket'])){
