@@ -16,10 +16,10 @@ class User extends RestController
     {
         $param = $this->post();
         if (!empty($param['username']) && !empty($param['password'])) {
-            $user = $this->db->get_where('PENGGUNA', ['NAMA_PENGGUNA' => $param['username']])->result();
+            $user = $this->db->get_where('pengguna', ['NAMA_PENGGUNA' => $param['username']])->result();
             if ($user != null) {
                 $resLogin = $this->db->get_where(
-                    'PENGGUNA',
+                    'pengguna',
                     ['NAMA_PENGGUNA' => $param['username'], 'PASSWORD_PENGGUNA' => $param['password']]
                 )->result();
                 if ($resLogin != null) {
