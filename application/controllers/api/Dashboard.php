@@ -47,7 +47,7 @@ class Dashboard extends RestController
     {
         $jmlpemesanan = $this->db->get_where('pemesanan',['NOMOR_PEMESANAN'])->result();
         $jmlbaru = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN = 0')->result();
-        $jmlproses = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN in (2, 3, 4, 5, 6)')->result();
+        $jmlproses = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN in (1, 2, 3, 4, 5, 6)')->result();
         $jmlselesai = $this->db->get_where('pemesanan', 'STATUS_PEMESANAN = 7')->result();
         $jmlPemasukan = $this->db->select('SUM(JML_PEMASUKAN) as JML_PEMASUKAN')->get('pemasukan')->result();
         $jmlPengeluaran   = $this->db->select('SUM(JML_PENGELUARAN) as JML_PENGELUARAN')->get('pengeluaran')->result();
