@@ -241,8 +241,8 @@ class Pemesanan extends RestController
         }
     }
 
-    public function changeStatus(){
-        $param = $this->post;
+    public function changeStatus_put(){
+        $param = $this->put;
         $this->db->where('NOMOR_PEMESANAN', $param['noPesan'])->update('pemesanan', ['STATUS_PEMESANAN' => $param['status']]);
         $this->response(['status' => true, 'message' => 'Data berhasil diubah'], 200);
     }
