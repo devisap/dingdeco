@@ -111,7 +111,9 @@ class Pemesanan extends RestController
         $param = $this->get();  
         //0 = show all, 1 = baru, 2 = cek lokasi, 3 = booking, dst
         if($param['status'] == 0){
-            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%'";
+            $query = "SELECT p.NOMOR_PEMESANAN, p2.NAMA_PENGGUNA, k.NAMA_KLIEN, k.TELP_KLIEN, p.ALAMAT_PEMESANAN, p.TGLACARA_PEMESANAN, p.STATUS_PEMESANAN 
+                    FROM pemesanan p, pengguna p2, klien k 
+                    WHERE p.NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND p.ID_KLIEN = k.ID_KLIEN AND p.ID_PENGGUNA = p2.ID_PENGGUNA" ;
             $pesanan = $this->db->query($query)->result();
 
             if($pesanan != null){
@@ -120,7 +122,9 @@ class Pemesanan extends RestController
                 $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
             };
         }else if($param['status'] == 1){
-            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 0";
+            $query = "SELECT p.NOMOR_PEMESANAN, p2.NAMA_PENGGUNA, k.NAMA_KLIEN, k.TELP_KLIEN, p.ALAMAT_PEMESANAN, p.TGLACARA_PEMESANAN, p.STATUS_PEMESANAN 
+                    FROM pemesanan p, pengguna p2, klien k 
+                    WHERE p.NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND p.ID_KLIEN = k.ID_KLIEN AND p.ID_PENGGUNA = p2.ID_PENGGUNA" ;
             $pesanan = $this->db->query($query)->result();
 
             if($pesanan != null){
@@ -129,7 +133,9 @@ class Pemesanan extends RestController
                 $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
             };
         }else if($param['status'] == 2){
-            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 1";
+            $query = "SELECT p.NOMOR_PEMESANAN, p2.NAMA_PENGGUNA, k.NAMA_KLIEN, k.TELP_KLIEN, p.ALAMAT_PEMESANAN, p.TGLACARA_PEMESANAN, p.STATUS_PEMESANAN 
+                    FROM pemesanan p, pengguna p2, klien k 
+                    WHERE p.NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND p.ID_KLIEN = k.ID_KLIEN AND p.ID_PENGGUNA = p2.ID_PENGGUNA" ;
             $pesanan = $this->db->query($query)->result();
 
             if($pesanan != null){
@@ -138,7 +144,9 @@ class Pemesanan extends RestController
                 $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
             };
         }else if($param['status'] == 3){
-            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 2";
+            $query = "SELECT p.NOMOR_PEMESANAN, p2.NAMA_PENGGUNA, k.NAMA_KLIEN, k.TELP_KLIEN, p.ALAMAT_PEMESANAN, p.TGLACARA_PEMESANAN, p.STATUS_PEMESANAN 
+                    FROM pemesanan p, pengguna p2, klien k 
+                    WHERE p.NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND p.ID_KLIEN = k.ID_KLIEN AND p.ID_PENGGUNA = p2.ID_PENGGUNA" ;
             $pesanan = $this->db->query($query)->result();
 
             if($pesanan != null){
@@ -147,7 +155,9 @@ class Pemesanan extends RestController
                 $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
             };
         }else if($param['status'] == 4){
-            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 3";
+            $query = "SELECT p.NOMOR_PEMESANAN, p2.NAMA_PENGGUNA, k.NAMA_KLIEN, k.TELP_KLIEN, p.ALAMAT_PEMESANAN, p.TGLACARA_PEMESANAN, p.STATUS_PEMESANAN 
+                    FROM pemesanan p, pengguna p2, klien k 
+                    WHERE p.NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND p.ID_KLIEN = k.ID_KLIEN AND p.ID_PENGGUNA = p2.ID_PENGGUNA" ;
             $pesanan = $this->db->query($query)->result();
 
             if($pesanan != null){
@@ -156,7 +166,9 @@ class Pemesanan extends RestController
                 $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
             };
         }else if($param['status'] == 5){
-            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 4";
+            $query = "SELECT p.NOMOR_PEMESANAN, p2.NAMA_PENGGUNA, k.NAMA_KLIEN, k.TELP_KLIEN, p.ALAMAT_PEMESANAN, p.TGLACARA_PEMESANAN, p.STATUS_PEMESANAN 
+                FROM pemesanan p, pengguna p2, klien k 
+                WHERE p.NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND p.ID_KLIEN = k.ID_KLIEN AND p.ID_PENGGUNA = p2.ID_PENGGUNA" ;
             $pesanan = $this->db->query($query)->result();
 
             if($pesanan != null){
@@ -165,7 +177,9 @@ class Pemesanan extends RestController
                 $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
             };
         }else if($param['status'] == 6){
-            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 5";
+            $query = "SELECT p.NOMOR_PEMESANAN, p2.NAMA_PENGGUNA, k.NAMA_KLIEN, k.TELP_KLIEN, p.ALAMAT_PEMESANAN, p.TGLACARA_PEMESANAN, p.STATUS_PEMESANAN 
+                FROM pemesanan p, pengguna p2, klien k 
+                WHERE p.NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND p.ID_KLIEN = k.ID_KLIEN AND p.ID_PENGGUNA = p2.ID_PENGGUNA" ;
             $pesanan = $this->db->query($query)->result();
 
             if($pesanan != null){
@@ -174,7 +188,9 @@ class Pemesanan extends RestController
                 $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
             };
         }else if($param['status'] == 7){
-            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 6";
+            $query = "SELECT p.NOMOR_PEMESANAN, p2.NAMA_PENGGUNA, k.NAMA_KLIEN, k.TELP_KLIEN, p.ALAMAT_PEMESANAN, p.TGLACARA_PEMESANAN, p.STATUS_PEMESANAN 
+                FROM pemesanan p, pengguna p2, klien k 
+                WHERE p.NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND p.ID_KLIEN = k.ID_KLIEN AND p.ID_PENGGUNA = p2.ID_PENGGUNA" ;
             $pesanan = $this->db->query($query)->result();
 
             if($pesanan != null){
@@ -183,7 +199,9 @@ class Pemesanan extends RestController
                 $this->response(['status' => false, 'message' => 'Data pemesanan tidak ditemukan'], 200);
             };
         }else if($param['status'] == 8){
-            $query = "SELECT * FROM pemesanan WHERE NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND STATUS_PEMESANAN = 7";
+            $query = "SELECT p.NOMOR_PEMESANAN, p2.NAMA_PENGGUNA, k.NAMA_KLIEN, k.TELP_KLIEN, p.ALAMAT_PEMESANAN, p.TGLACARA_PEMESANAN, p.STATUS_PEMESANAN 
+                FROM pemesanan p, pengguna p2, klien k 
+                WHERE p.NOMOR_PEMESANAN LIKE '%".$param['noPesanan']."%' AND p.ID_KLIEN = k.ID_KLIEN AND p.ID_PENGGUNA = p2.ID_PENGGUNA" ;
             $pesanan = $this->db->query($query)->result();
 
             if($pesanan != null){
